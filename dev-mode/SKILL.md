@@ -1,6 +1,6 @@
 ---
 name: dev-mode
-description: Autonomous ChatGPT WebUI development that implements an agreed specification, verifies the result, and resumes safely across per-turn tool limits.
+description: Autonomous ChatGPT WebUI development that implements an agreed specification, verifies the result, resumes safely across per-turn tool limits, and hands unfinished local work to a coding agent without losing context.
 ---
 
 # Dev Mode
@@ -115,6 +115,44 @@ A checkpoint should preserve:
 
 Do not rely on hidden chat context as the only record of substantial unfinished work.
 
+## Local Handoff phase
+
+Use this final optional phase when:
+
+- the user explicitly asks to continue with Codex, Claude Code, or another local agent;
+- the next work requires local filesystem, terminal, runtime, emulator, hardware, credentials, or tooling unavailable to WebUI;
+- WebUI has completed the useful remote portion and the remaining work is better performed locally.
+
+A handoff is a continuation, not a new planning session.
+
+Before handing off, synchronize against the latest available repository state and canonical spec so the packet does not describe stale work.
+
+Produce a self-contained **Local Agent Handoff** containing:
+
+1. **Objective** — what the local agent is continuing.
+2. **Repository state** — repo, branch, relevant PR/commit, and working-state assumptions.
+3. **Canonical specification** — exact OpenSpec change/spec or other source-of-truth location.
+4. **Settled decisions** — only decisions the local agent must preserve.
+5. **Completed work** — what WebUI already finished.
+6. **Current frontier** — exact unfinished implementation work.
+7. **Relevant files** — where the local agent should look first.
+8. **Verification** — tests/build/CI already run and their results.
+9. **Blockers/constraints** — environment or implementation constraints still active.
+10. **Next action** — the first concrete local operation.
+11. **Definition of done** — evidence required before the local agent may claim completion.
+
+End the packet with this instruction:
+
+```text
+Continue from this state. Do not restart discovery, re-plan settled product decisions, or redo completed work unless repository evidence shows the state has changed. Inspect current local state first, then execute the next unfinished task and verify against the canonical specification.
+```
+
+Prefer linking to existing durable artifacts over duplicating them.
+
+Do **not** create a new handoff file merely because a handoff exists. If the repository already contains the necessary durable state, output the handoff as a copy/paste prompt for the local agent.
+
+Only create or update a repository handoff artifact when the user explicitly wants a persistent handoff file or when the project already has a designated handoff mechanism.
+
 ## Tool-budget continuity
 
 ChatGPT WebUI may stop a connector-heavy assistant turn before it can send a normal final reply.
@@ -176,19 +214,21 @@ Continue the highest-value unfinished work without asking the user to reconstruc
 
 Dev Mode is complete when:
 
-- the agreed implementation tasks are done;
+- the agreed implementation tasks are done, **or** the remaining authorized work has been cleanly transferred through Local Handoff;
 - acceptance criteria are satisfied or any exceptions are explicit;
 - verification evidence is recorded;
-- no known in-scope blocker remains;
-- temporary/debug artifacts are removed;
+- no known in-scope blocker is hidden;
+- temporary/debug artifacts are removed where applicable;
 - repository state is clear.
 
-Finish with a compact report containing:
+When WebUI completed the implementation, finish with a compact report containing:
 
 - what changed;
 - where;
 - verification evidence;
 - any remaining limitation;
 - current branch/PR/commit state when relevant.
+
+When a local agent must continue, finish with the Local Agent Handoff instead.
 
 Do not claim completion based on intent. Claim it from evidence.

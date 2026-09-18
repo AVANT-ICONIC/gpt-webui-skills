@@ -26,20 +26,31 @@ done
 
 ## Install
 
-Add this to ChatGPT Custom Instructions:
+### ChatGPT Web / Desktop
+
+1. Open **Settings → Personalization → Custom Instructions**.
+2. Make sure customization is enabled.
+3. Add this instruction:
 
 ```text
-For substantial project work, load and follow the appropriate skill from:
-https://github.com/AVANT-ICONIC/gpt-webui-skills
-
-Use plan-mode to decide what should be built, spec-mode to turn settled decisions into an implementation-ready spec, and dev-mode to implement it.
-
-When a skill checkpoints, "continue" resumes the unfinished work without restarting discovery.
+For substantial project work in ChatGPT WebUI, load and follow the appropriate skill from https://github.com/AVANT-ICONIC/gpt-webui-skills before proceeding. Use plan-mode for planning and uncertain changes, spec-mode for turning settled decisions into an implementation-ready specification, and dev-mode for implementation. If I say "continue", resume the active skill from its latest durable checkpoint without restarting discovery. If I say "continue plan/spec/dev on <project or repo>" in a fresh chat, reload that skill and recover durable state first.
 ```
 
-That is the installation. The repository stays canonical, so updates to the skills do not require repeatedly rewriting Custom Instructions.
+If you previously used longer WebUI workflow instructions in Custom Instructions, replace them with the block above. The repository is the canonical source; Custom Instructions only need to route ChatGPT to the correct skill.
 
 For repository work, connect GitHub or another source that lets ChatGPT inspect the actual project instead of asking you to manually relay facts it can retrieve.
+
+### Verify installation
+
+Start a new chat and try one of:
+
+```text
+plan a new project
+spec this project
+dev this repo
+```
+
+ChatGPT should load the matching `SKILL.md` before doing substantial work.
 
 ## Usage
 

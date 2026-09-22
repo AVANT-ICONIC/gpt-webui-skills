@@ -1,6 +1,6 @@
 # GPT WebUI Skills
 
-A tiny set of workflow skills for substantial project work in **ChatGPT WebUI**.
+A growing set of WebUI-native skills for substantial and specialized work in **ChatGPT WebUI**.
 
 These skills are intentionally WebUI-specific. They account for conversational planning, connector-based repository work, per-turn tool limits, durable checkpoints, `continue`, fresh-session recovery, and clean handoff to a local coding agent.
 
@@ -25,6 +25,7 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Plan Mode](./plan-mode/SKILL.md) | Turn a fuzzy idea into settled decisions | Interactive, 2–3 independent decision threads per round |
 | [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
+| [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 
 ## Install
 
@@ -41,16 +42,11 @@ Remove any older custom-instruction block that describes PLAN MODE, SPEC MODE, D
 Replace that whole workflow block with:
 
 ```text
-For substantial project planning, specification, or development work, load and follow the appropriate skill from https://github.com/AVANT-ICONIC/gpt-webui-skills before proceeding.
+Before substantial or specialized work, check https://github.com/AVANT-ICONIC/gpt-webui-skills for a matching skill. If one exists, load its current SKILL.md and follow it. Treat that repository as canonical and discover available skills from it rather than relying on a hard-coded list.
 
-Use:
-- plan-mode for ideas, architecture, features, workflows, and uncertain changes.
-- spec-mode when the important decisions are settled and need to become an implementation-ready specification.
-- dev-mode when an agreed specification should be implemented, verified, or handed off to a local coding agent.
+If I say "continue", resume the active skill from its latest durable checkpoint without restarting discovery. In a fresh chat, recover the matching skill and durable project state first.
 
-If I say "continue", resume the active skill from its latest durable checkpoint without restarting discovery. In a fresh chat, "continue plan/spec/dev on <project or repo>" means reload the matching skill and recover durable state first.
-
-When WebUI cannot or should not finish work that requires the local machine, or when I ask for a handoff, use DEV MODE's Local Handoff phase and produce a self-contained continuation packet for Codex, Claude Code, or another local agent. Do not make the local agent rediscover settled context.
+If work must continue on my local machine or with another coding agent, follow the active skill's handoff instructions and preserve settled context.
 ```
 
 Keep unrelated personal preferences and non-workflow Custom Instructions unchanged.
@@ -67,6 +63,7 @@ Start a new chat and try:
 plan a new project
 spec this project
 dev this repo
+watch https://youtu.be/VIDEO_ID
 ```
 
 ChatGPT should load the matching `SKILL.md` before substantial work.
@@ -97,6 +94,15 @@ dev <repo / specification>
 
 Dev Mode implements the agreed specification, verifies the result, and keeps product decisions separate from execution.
 
+### Video Watch
+
+```text
+watch <video URL / uploaded video> [question]
+```
+
+Video Watch resolves the actual video, extracts scene-change + timeline-coverage + dense opening frames, packs them into timestamped contact sheets, and has ChatGPT inspect those images alongside available captions.
+
+It is intentionally WebUI-specific: contact sheets reduce dozens of visual frames to a small number of image-tool calls, while focused `--start` / `--end` passes allow closer inspection of important ranges.
 ### Local handoff
 
 Use:

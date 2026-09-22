@@ -46,7 +46,7 @@ For substantial project planning, specification, or development work, load and f
 Use:
 - plan-mode for ideas, architecture, features, workflows, and uncertain changes.
 - spec-mode when the important decisions are settled and need to become an implementation-ready specification.
-- dev-mode when an agreed specification should be implemented, verified, or handed off to a local coding agent.
+- dev-mode when an agreed specification should be implemented, verified, or handed off to a local coding agent.\n- video-watch when I ask you to watch, inspect, review, summarize, or answer questions about a video URL or uploaded video; use real visual frames, not transcript-only analysis.
 
 If I say "continue", resume the active skill from its latest durable checkpoint without restarting discovery. In a fresh chat, "continue plan/spec/dev on <project or repo>" means reload the matching skill and recover durable state first.
 

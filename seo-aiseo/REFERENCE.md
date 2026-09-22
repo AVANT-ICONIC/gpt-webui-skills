@@ -726,3 +726,156 @@ An SEO + AI SEO audit is complete when:
 - unsupported hacks are separated from evidence-backed work.
 
 Do not promise rankings. Produce evidence, fixes, and a system that can be measured.
+
+
+## Operational sales and AI-discovery layer
+
+This section extends the SEO audit into conversion and agent-readiness without turning the engagement into a website rewrite.
+
+### Site truth
+
+For full audits, establish a stable fact set before editing:
+
+| Field | Requirement |
+|---|---|
+| Canonical brand name | Required |
+| One-sentence definition | Required |
+| Primary conversion | Required |
+| Secondary conversions | When relevant |
+| Audience and disqualifiers | Required |
+| Geography / languages / currency | Required |
+| Public pricing or pricing model | When it exists |
+| Real proof assets | Required inventory |
+| Frozen/legal pages | When applicable |
+| Retrieval/training crawler policy | Explicit |
+
+Keep factual claims, offer scope, price, guarantees, legal terms, credentials, and proof locked unless the owner provides new truth.
+
+### Full-site inventory
+
+For every important public indexable URL record:
+
+- URL;
+- title;
+- H1;
+- meta description;
+- page type;
+- primary intent;
+- indexability/canonical state;
+- whether main content is present in initial HTML;
+- schema types;
+- primary CTA and label;
+- notable issues.
+
+Prioritize all public marketing and money pages before low-value archives.
+
+### Five-second conversion test
+
+A new visitor should be able to identify:
+
+1. what the offer is;
+2. who it is for;
+3. what they receive;
+4. why the claim is credible;
+5. what action comes next.
+
+Prefer structure, proof placement, metadata, answer blocks, internal links, schema, pricing/inclusion clarity, and CTA changes before rewriting established copy.
+
+### AI baseline
+
+Before major AI-search changes, create a representative prompt set from buyer language.
+
+Use 15-40 prompts for a full audit when practical, distributed across:
+
+- category discovery;
+- job-to-be-done;
+- comparison;
+- local intent;
+- price/cost;
+- fit/use case;
+- agent-style constrained research/purchase tasks.
+
+Record by engine and date:
+
+| Prompt | Engine | Brand named? | Site cited? | Recommended or mentioned? | Wrong/missing facts | Cited source/competitor |
+|---|---|---:|---:|---|---|---|
+
+Re-run the same set after meaningful changes. This is a measurement baseline, not a ranking score.
+
+### Retrieval versus training policy
+
+Do not collapse all AI crawlers into one allow/block decision.
+
+Re-check current first-party documentation before implementation.
+
+Current documented distinctions include:
+
+- OpenAI search discovery via `OAI-SearchBot`; training/model-development controls are separate;
+- Anthropic search via `Claude-SearchBot`, user-directed retrieval via `Claude-User`, and model-development crawling via `ClaudeBot`.
+
+If visibility is the goal, verify both robots.txt and infrastructure access. A permissive robots file does not help when the CDN, WAF, or bot manager returns a challenge or 403.
+
+### llms.txt and markdown mirrors
+
+Treat `llms.txt` as optional agent infrastructure, not a Google ranking mechanism.
+
+Current Google guidance says it neither helps nor hurts Google Search visibility. The llms.txt v2 proposal adds discoverability through `rel="describedby"` for the covering llms.txt file and `rel="alternate" type="text/markdown"` for page-level Markdown representations.
+
+Recommendation level:
+
+- documentation-heavy sites: reasonable experiment;
+- agent-facing product/docs sites: potentially useful;
+- ordinary brochure/local sites: low priority unless inexpensive;
+- never place it ahead of crawl/index, content quality, entity consistency, or conversion basics.
+
+Markdown mirrors must remain semantically consistent with the visible canonical page and must not carry hidden claims.
+
+### Agent-readable offer card
+
+For products and services, verify whether the public site lets an agent extract:
+
+~~~text
+Brand:
+Category:
+Audience:
+Primary offer:
+Price / pricing model:
+Availability / booking path:
+Geographic or legal limits:
+Proof:
+Primary CTA URL:
+Contact:
+Differentiators:
+Not a fit for:
+~~~
+
+Any field that requires guessing is a machine-readability gap.
+
+### Output contract for full audits
+
+Prefer these durable artifacts when the project benefits from files:
+
+- `AUDIT_SUMMARY.md`;
+- `SITE_INVENTORY.md`;
+- `SITE_TRUTH.md`;
+- `ENTITY.md`;
+- `AI_BASELINE.md`;
+- `CHANGE_PLAN.md`;
+- `MEASUREMENT.md`.
+
+Do not create ceremony files for tiny audits. For each proposed change state the page, problem, exact change, expected effect, evidence tier, priority, and verification method.
+
+### Quality gates
+
+A full engagement should not be called complete until:
+
+- important public marketing URLs were inventoried or an explicit subset was agreed;
+- crawl/index blockers are known;
+- no fabricated proof or offer claims were introduced;
+- structured data matches visible truth;
+- money pages pass the five-second test or remaining failures are explicit;
+- retrieval crawler access matches the owner's policy;
+- the AI baseline was run or explicitly waived;
+- priority actions are testable;
+- off-site dependencies are separated from on-site work;
+- measurement can be repeated after implementation.

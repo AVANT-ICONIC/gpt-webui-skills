@@ -25,7 +25,8 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Plan Mode](./plan-mode/SKILL.md) | Turn a fuzzy idea into settled decisions | Interactive, 2–3 independent decision threads per round |
 | [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
-| [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |\n| [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
+| [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
+| [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
 
 
 ## Visual-first skill convention
@@ -83,7 +84,8 @@ Start a new chat and try:
 plan a new project
 spec this project
 dev this repo
-watch https://youtu.be/VIDEO_ID\nseo audit https://example.com
+watch https://youtu.be/VIDEO_ID
+seo audit https://example.com
 ```
 
 ChatGPT should load the matching `SKILL.md` before substantial work.
@@ -123,6 +125,16 @@ watch <video URL / uploaded video> [question]
 Video Watch resolves the actual video, extracts scene-change + timeline-coverage + dense opening frames, packs them into timestamped contact sheets, and has ChatGPT inspect those images alongside available captions.
 
 It is intentionally WebUI-specific: contact sheets reduce dozens of visual frames to a small number of image-tool calls, while focused `--start` / `--end` passes allow closer inspection of important ranges.
+### SEO + AI SEO
+
+```text
+seo audit https://example.com
+ai seo audit https://example.com
+optimize https://example.com/service for SEO + AI search
+```
+
+SEO + AI SEO performs a research-fresh audit across crawl/indexing, technical SEO, search intent, content quality, entity/local authority, AI crawler access, citation/mention opportunities, and measurement. It separates official platform guidance from observational studies and experiments instead of treating every GEO theory as fact.
+
 ### Local handoff
 
 Use:

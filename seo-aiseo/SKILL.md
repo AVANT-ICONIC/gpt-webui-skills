@@ -1,60 +1,13 @@
 ---
 name: seo-aiseo
-description: Research-led ChatGPT WebUI SEO + AI search optimization audits and strategy for websites, combining technical SEO, content/intent, local/entity authority, crawlability, AI citation visibility, and measurement using current evidence.
+description: Research-led ChatGPT WebUI SEO + AI search optimization for websites, combining technical SEO, content/intent, entity/local authority, crawlability, AI citation visibility, and measurement using current evidence.
 ---
 
 # SEO + AI SEO
 
-Audit and improve a website for both traditional search and AI-driven discovery.
+Audit and improve websites for classic search and AI-driven discovery.
 
-This skill treats AI SEO / AEO / GEO as an extension of SEO, not a separate bag of tricks. The job is to make a site easy to crawl, understand, trust, retrieve, cite, recommend, and convert from.
-
-## Visual chat presentation
-
-Make user-facing output highly visual and easy to scan.
-
-Prefer:
-
-- semantic markers: 🟢 good, 🟡 opportunity, 🔴 blocker, 🔵 evidence, 🟣 experiment;
-- compact progress bars;
-- short tables for findings and priorities;
-- ASCII/Unicode trees and flows;
-- concise dashboards instead of walls of prose.
-
-Useful pattern:
-
-~~~text
-╭─ SEARCH VISIBILITY ─────────────╮
-│ 🟢 crawlability   █████████░ 90% │
-│ 🟡 content depth  ██████░░░░ 60% │
-│ 🔴 entity signals ███░░░░░░░ 30% │
-│ 🟣 AI tests       █████░░░░░ 50% │
-╰─────────────────────────────────╯
-~~~
-
-Do not decorate exact code, robots.txt directives, schema, metadata, URLs, or copy-paste artifacts in ways that alter them.
-
-## Activation
-
-Use this skill for requests such as:
-
-- SEO audit <URL>
-- AI SEO audit <URL>
-- optimize this site/page for Google + ChatGPT
-- why is this page not ranking?
-- why are competitors cited by AI and we are not?
-- create an SEO/AEO/GEO strategy
-- build a content plan for search + AI visibility
-- local SEO audit
-- technical SEO review
-- review Search Console / Bing Webmaster exports
-- prepare a page to be more retrievable or citable by AI search
-
-For substantial implementation in a code repository, keep this skill as the domain rulebook and also load dev-mode for repository execution, verification, and handoff.
-
-## Core principle
-
-Use this model:
+Treat AI SEO / AEO / GEO as an extension of SEO, not a separate bag of tricks.
 
 ~~~text
 crawlable
@@ -74,38 +27,65 @@ citable / mentionable
 conversion
 ~~~
 
-Do not optimize citation visibility while basic crawlability, indexing, or relevance is broken.
+Do not optimize AI citations while crawling, indexing, relevance, or basic content quality is broken.
+
+## Visual chat presentation
+
+Make user-facing output highly visual and easy to scan.
+
+Prefer:
+
+- 🟢 good / verified;
+- 🟡 opportunity / medium confidence;
+- 🔴 blocker / risk;
+- 🔵 first-party evidence;
+- 🟣 experiment / hypothesis;
+- compact dashboards, trees, tables, and progress bars.
+
+Do not decorate exact code, schema, metadata, robots directives, or copy-paste artifacts in ways that alter them.
+
+## Activation
+
+Use for:
+
+- SEO audit <URL>
+- AI SEO audit <URL>
+- optimize this page/site for Google + ChatGPT
+- why is this page not ranking?
+- why are competitors cited by AI and we are not?
+- local SEO audit
+- technical SEO review
+- content strategy for search + AI
+- Search Console / Bing Webmaster analysis
+- AI citation / mention visibility analysis
+
+For substantial repository implementation, keep this skill as the domain rulebook and also load dev-mode.
 
 ## Mandatory freshness pass
 
-SEO changes slowly. AI search changes quickly.
+Before every substantial audit or strategy, browse current platform guidance.
 
-Before every substantial audit or strategy, browse current sources and verify material platform behavior.
+Start with first-party sources:
 
-Start with official sources:
+1. Google Search Central and Search Console docs;
+2. OpenAI publisher / crawler docs;
+3. Bing Webmaster and AI Performance docs;
+4. IndexNow;
+5. Perplexity crawler/search docs when relevant;
+6. Merchant Center, Business Profile, image/video, local, international, or agentic docs when the site requires them.
 
-1. Google Search Central
-2. Google Search Console documentation
-3. OpenAI publisher / crawler documentation
-4. Bing Webmaster guidance and AI Performance documentation
-5. IndexNow documentation
-6. Perplexity crawler/search documentation when relevant
-7. official ecommerce, local, image, video, or agentic documentation when the site type requires it
+Then use large independent studies only for observed behavior.
 
-Then optionally use large third-party studies for observed behavior.
+Do not rely on remembered AI SEO tactics when current documentation is available.
 
-Do not rely on remembered AI SEO tactics when fresh documentation is available.
-
-Record the research date in the final audit.
+Record the research date.
 
 ## Evidence tiers
 
-Classify important recommendations.
-
 ~~~text
-🟢 A  official platform documentation or direct first-party evidence
-🟡 B  large independent observational study or repeatable industry dataset
-🟣 C  plausible experiment, hypothesis, or weak/limited evidence
+🟢 A  official platform documentation / direct first-party evidence
+🟡 B  large independent observational study / repeatable dataset
+🟣 C  experiment, hypothesis, or limited evidence
 🔴 X  contradicted, spammy, obsolete, or unsupported tactic
 ~~~
 
@@ -113,52 +93,45 @@ Rules:
 
 - A outranks B.
 - B is correlation unless causality is demonstrated.
-- C must be presented as an experiment, never as a ranking fact.
-- Never upgrade a third-party correlation into a search-engine rule.
-- If sources disagree, state the disagreement and prefer direct platform evidence for platform-specific behavior.
+- C must be framed as a test, never as a ranking fact.
+- If sources disagree, state the disagreement.
+- Never convert a vendor study into a search-engine rule.
 
 ## Start from real evidence
 
 Before diagnosing:
 
-1. identify the site, page, market, language, audience, and business goal;
-2. inspect the live website when available;
-3. inspect the repository/CMS configuration when connected and relevant;
-4. use Search Console, Bing Webmaster, analytics, crawl exports, or uploaded reports when supplied;
-5. inspect competitors only when they materially help explain the gap;
-6. retrieve facts rather than asking the user to relay data that connected tools can provide.
+1. identify site/page, market, language, audience, and business goal;
+2. inspect the live site;
+3. inspect repo/CMS configuration when connected and relevant;
+4. use Search Console, Bing Webmaster, analytics, crawl exports, or uploaded reports when available;
+5. retrieve facts instead of asking the user to relay accessible data.
 
-Do not assume a rendered page equals what crawlers can access.
+Do not assume a rendered page equals crawler-visible content.
 
-## Audit modes
-
-Choose the smallest mode that satisfies the request.
+## Choose audit depth
 
 ### Quick audit
 
-Use for one page or a fast diagnosis.
-
 Cover:
 
-- indexability;
+- crawl/indexability;
 - title/H1/meta;
-- search intent;
-- core content quality;
+- intent match;
+- main content quality;
 - internal links;
 - schema relevance;
 - AI crawler access;
-- major AI-citation opportunities;
+- top AI citation opportunities;
 - top 5 actions.
 
 ### Full audit
 
-Use for a domain or serious strategy.
-
-Cover all phases below.
+Load seo-aiseo/REFERENCE.md and work through the detailed checklist.
 
 ### Page optimization
 
-Produce exact replacement recommendations for:
+Produce exact recommendations for:
 
 - title;
 - meta description;
@@ -166,188 +139,124 @@ Produce exact replacement recommendations for:
 - opening answer;
 - sections;
 - internal links;
-- structured data;
 - media;
+- schema;
 - evidence;
 - freshness;
-- AI-retrieval opportunities.
+- AI retrieval opportunities.
 
-Do not keyword-stuff or manufacture claims.
+Never manufacture claims, reviews, case studies, prices, or credentials.
 
-### Local SEO
+## Audit order
 
-Add:
+Always work in this order:
 
-- Google Business Profile completeness;
-- business name/address/phone consistency where applicable;
-- categories/services;
-- local landing-page relevance;
-- reviews and review velocity;
-- local citations and genuine mentions;
-- LocalBusiness schema where appropriate;
-- maps/local intent;
-- location-specific evidence and case studies.
+~~~text
+1 technical
+2 architecture + intent
+3 on-page
+4 information gain
+5 structured data
+6 entity / local / authority
+7 AI search
+8 measurement
+~~~
 
-### Ecommerce
+Fix foundations before polishing experiments.
 
-Add:
+## 1. Technical SEO
 
-- Merchant Center / product feeds;
-- Product structured data;
-- variants, price, availability, shipping/returns where relevant;
-- canonical handling for faceted/variant URLs;
-- crawl traps;
-- product review quality;
-- comparison and category content;
-- agentic/commerce protocols only when current official guidance supports them.
+Check the relevant items:
 
-## Phase 1: Technical SEO
-
-Inspect the foundations first.
-
-### Crawl and index
-
-Check:
-
-- robots.txt;
-- robots meta / X-Robots-Tag;
-- HTTP status codes;
-- redirects and chains;
-- canonical tags;
-- XML sitemap quality and freshness;
-- orphan URLs;
-- duplicate and near-duplicate URLs;
-- pagination/facets where relevant;
+- robots and noindex controls;
+- successful HTTP responses;
+- canonicalization;
+- redirects;
+- sitemaps;
+- duplicate URLs;
+- crawlable internal links;
+- orphan pages;
+- JavaScript-rendered content;
 - indexable text in the DOM;
-- JavaScript rendering dependence;
-- mobile rendering;
+- mobile behavior;
 - HTTPS;
-- hreflang for multilingual sites;
-- accidental staging/dev indexation;
-- crawl traps;
-- soft 404s;
-- broken internal links;
-- canonical/sitemap conflicts.
+- hreflang when multilingual;
+- soft 404s and broken links;
+- crawl traps / facets;
+- staging leakage;
+- sitemap/canonical conflicts.
 
-A page intended for Google Search must be accessible, return a successful status, and contain indexable content.
-
-### Architecture
-
-Check:
-
-- clear hierarchy;
-- shallow access to important pages;
-- crawlable anchor links;
-- descriptive anchor text;
-- logical hub → cluster relationships;
-- orphaned money pages;
-- cannibalization;
-- URL clarity and stability.
-
-Prefer architecture that makes entity/topic relationships obvious to humans and machines.
-
-### Page experience
-
-Inspect Core Web Vitals where evidence is available:
+For performance, inspect Core Web Vitals when evidence exists:
 
 - LCP;
 - INP;
 - CLS.
 
-Also consider mobile usability, intrusive overlays, visual stability, accessibility, and whether primary content is easy to identify.
+Do not turn Lighthouse 100 into a religion.
 
-Do not turn Lighthouse 100 into a religion. Relevance and usefulness still matter more than polishing a score from 97 to 100 because humans enjoy inventing side quests.
+## 2. Intent and architecture
 
-## Phase 2: Search intent and information architecture
+Map each important canonical page to:
 
-Build a query/topic map.
-
-For each important page identify:
-
-- target audience;
+- audience;
 - primary intent;
-- main query/topic;
-- meaningful subquestions;
+- main topic/query;
+- meaningful supporting questions;
 - funnel stage;
 - competing/cannibalizing page;
-- evidence the page can uniquely provide;
-- desired conversion.
+- unique evidence;
+- conversion.
 
-Use this structure:
+Do not create a page for every tiny keyword or fan-out variation.
 
-~~~text
-topic
-├─ primary intent
-├─ supporting questions
-├─ comparison questions
-├─ local/commercial modifiers
-├─ evidence users need
-└─ best canonical page
-~~~
+Prefer coherent hub/cluster relationships and clear internal linking.
 
-Do not create one page for every tiny query variation.
+## 3. On-page SEO
 
-Google can understand synonyms and related concepts. Scaled pages created mainly to manipulate rankings or generative responses are a risk.
+Evaluate:
 
-## Phase 3: On-page SEO
-
-For every important page evaluate:
-
-- descriptive, specific title;
+- specific, descriptive title;
 - clear H1;
 - useful meta description;
-- natural-language URL;
-- strong first screen;
-- answer to the primary intent early;
-- logical H2/H3 hierarchy;
-- meaningful internal links;
-- descriptive image alt text where appropriate;
-- relevant image/video support;
-- visible authorship or business identity when useful;
-- dates only when meaningful;
-- factual claims supported by evidence;
-- strong conversion path.
+- readable stable URL;
+- primary answer early;
+- logical H2/H3 structure;
+- descriptive internal anchors;
+- relevant media;
+- visible business/author identity where useful;
+- factual support;
+- clear conversion path.
 
-The first paragraphs should establish what the page is about and answer the central question without making the reader survive six paragraphs of corporate mist.
+Avoid corporate fog before the answer. Search engines and humans both have better things to do.
 
-## Phase 4: Content quality and information gain
+## 4. Information gain
 
-Prioritize non-commodity content.
-
-Look for:
+Prioritize non-commodity content:
 
 - firsthand experience;
-- original research;
-- original measurements;
+- original research/data;
+- benchmarks/tests;
 - case studies;
-- benchmarks;
-- tests;
 - expert commentary;
 - proprietary process;
-- real screenshots;
-- original photos/video;
-- concrete pricing or ranges where the business can publish them;
-- specific constraints and tradeoffs;
+- original screenshots/photos/video;
+- concrete pricing/ranges when publishable;
 - before/after evidence;
-- current data;
-- useful tools/calculators/templates.
+- current facts;
+- useful tools/templates/calculators.
 
-Ask:
+Use the test:
 
 ~~~text
-Could a generic model produce this page without access
-to the company, expert, product, customers, or data?
+Could a generic model create this page without access
+to this company, expert, product, customers, or data?
 ~~~
 
-If yes, the page probably needs more information gain.
+If yes, seek more original value.
 
-Do not manufacture data, reviews, experience, credentials, or case studies.
+## 5. Structured data
 
-## Phase 5: Structured data and machine clarity
-
-Use structured data when it truthfully represents visible page content.
-
-Prefer the most specific applicable schema and current Google-supported types.
+Use only schema that truthfully represents visible content.
 
 Common examples:
 
@@ -359,78 +268,79 @@ Common examples:
 - BreadcrumbList;
 - VideoObject;
 - Event;
-- JobPosting;
-- other relevant supported types.
+- JobPosting.
 
-Rules:
+Prefer current Google-supported guidance and validate markup.
 
-- JSON-LD is usually the easiest format to maintain;
-- validate against current Google requirements;
-- do not mark up hidden or nonexistent content;
-- do not add schema merely because a plugin can generate it;
-- structured data can enable rich results but does not guarantee them;
-- there is no special schema required for Google generative AI results.
+Structured data can enable rich results. It does not guarantee rankings or AI citations.
 
-## Phase 6: Entity, authority, and corroboration
+There is no universal special AI schema.
 
-Evaluate whether the web can confidently understand the entity.
+## 6. Entity, local, and authority
 
-Check consistency across:
+Check whether the entity is consistently represented across relevant sources:
 
-- official website;
-- Google Business Profile where relevant;
+- official site;
+- Google Business Profile;
 - LinkedIn;
 - GitHub;
 - YouTube;
 - major social profiles;
-- industry directories;
-- partner/client pages;
-- reputable press;
+- partners/clients;
+- reputable directories;
+- press;
 - reviews;
-- relevant community discussions;
-- professional profiles.
+- relevant communities.
 
-Prefer genuine, context-rich mentions over bulk link building or fake citations.
+Prefer genuine context-rich mentions over bulk links or fake citations.
 
-For local businesses, verify complete and accurate business information. Local visibility depends heavily on relevance, distance, and prominence.
+For local businesses, verify complete business information and evaluate relevance, distance constraints, prominence, reviews, local evidence, and LocalBusiness markup where appropriate.
 
-## Phase 7: AI search optimization
+## 7. AI search
 
-### Google AI Overviews / AI Mode
+### Google AI features
 
-Treat foundational SEO as mandatory.
+Treat normal SEO as the foundation.
 
-Current official Google guidance should be checked on each substantial run, but the stable principles are:
+Current stable guidance:
 
-- pages must be eligible for normal Search;
+- be eligible for normal Search;
 - create unique, useful, non-commodity content;
 - organize content clearly;
-- use relevant high-quality images/video;
-- keep technical structure crawlable;
+- use useful images/video;
+- keep the site crawlable;
 - reduce duplication;
-- use Business Profile / Merchant Center where appropriate;
-- monitor generative visibility in Search Console when available.
+- use Business Profile / Merchant Center when relevant;
+- measure generative visibility in Search Console.
 
-Google query fan-out means one user question can trigger several related retrieval queries.
+Query fan-out means one question may trigger related retrieval queries.
 
-Optimize for this by covering the real supporting questions on a strong canonical page, not by mass-producing thin pages for every fan-out variation.
+Cover real subquestions naturally on strong canonical pages. Do not mass-produce thin fan-out pages.
+
+Google currently says:
+
+- llms.txt does not improve Google visibility;
+- artificial chunking is unnecessary;
+- there is no special AI markup requirement;
+- inauthentic mentions are not a useful strategy.
+
+Re-verify these claims on substantial runs because platform guidance can change.
 
 ### ChatGPT Search
 
-Check current OpenAI publisher guidance.
+Check current OpenAI guidance.
 
-At minimum verify:
+Verify:
 
-- OAI-SearchBot is not blocked where citation/search inclusion is desired;
-- robots.txt is not the only access layer;
-- CDN/WAF/bot protection does not return 403/challenges to the crawler;
-- published OpenAI searchbot IP ranges are not accidentally blocked when allowlisting is required;
-- pages are public and directly reachable;
-- titles and content clearly describe the page.
+- OAI-SearchBot access;
+- CDN/WAF/bot protection does not block it;
+- published IP ranges are not accidentally blocked when allowlisting is used;
+- pages are public and reachable;
+- titles/content clearly describe the page.
 
-Keep GPTBot training controls conceptually separate from OAI-SearchBot search discovery.
+Keep GPTBot training controls separate from OAI-SearchBot search discovery.
 
-Track ChatGPT referrals when available. OpenAI currently appends a ChatGPT referral UTM parameter to search-result traffic.
+Track ChatGPT referral traffic when available.
 
 ### Bing / Copilot
 
@@ -438,117 +348,83 @@ Use Bing Webmaster Tools when available.
 
 Inspect:
 
-- indexing/crawl health;
-- AI Performance;
+- AI citations;
 - cited URLs;
-- citation trends;
 - grounding queries;
-- pages that are indexed but rarely cited.
+- page-level citation activity;
+- trends.
 
-Use grounding-query data as a feedback loop for improving relevance, clarity, depth, and evidence.
+Use grounding queries as a feedback loop for relevance, clarity, depth, evidence, and freshness.
 
-Consider IndexNow for sites where timely updates matter.
+Consider IndexNow when timely updates matter.
 
 ### Perplexity
 
-Check current Perplexity crawler guidance.
+Check current Perplexity crawler guidance and verify PerplexityBot access when discoverability is desired.
 
-Verify PerplexityBot access when the owner wants discoverability.
+Keep Perplexity-specific tactics platform-specific.
 
-Treat Perplexity-specific recommendations as platform-specific, not universal SEO rules.
+## AI citation heuristics
 
-### AI retrieval / citation heuristics
+These are tests, not guaranteed ranking factors.
 
-These are not guaranteed ranking factors.
+Current evidence may justify testing:
 
-Use current evidence tier B/C to test:
-
-- strong semantic alignment between page title, page content, and likely subquestions;
-- human-readable URL slugs;
-- concise passages that state useful facts clearly;
-- tables for genuinely tabular comparisons;
-- explicit entity names where ambiguity would otherwise exist;
+- semantic alignment between title/content and likely subquestions;
+- human-readable URLs;
+- clear fact-rich passages;
+- genuine comparison tables;
+- explicit entity names where ambiguity exists;
 - freshness for time-sensitive topics;
-- original data and attributable facts;
+- original attributable data;
 - genuine third-party brand mentions;
-- comparison content where it matches real user intent;
-- multimedia where it adds unique evidence.
+- comparison content when it matches user intent;
+- useful multimedia.
 
-Do not contort prose into robotic fragments merely to make it "AI-readable".
+Label each recommendation B or C unless first-party guidance supports it.
 
-## What not to do
+Do not rewrite pages into robotic fragments merely to appear "AI-readable".
 
-Flag these aggressively:
+## What to reject
 
 ~~~text
-🔴 mass-generated doorway pages
-🔴 fake reviews or testimonials
-🔴 fake citations / fake brand mentions
+🔴 mass doorway pages
+🔴 fake reviews / testimonials
+🔴 fake citations / mentions
 🔴 keyword stuffing
 🔴 hidden AI-targeted text
-🔴 changing only the publish date to appear fresh
+🔴 date-only freshness updates
 🔴 schema spam
 🔴 thin location pages
-🔴 copied product/service descriptions
-🔴 buying junk backlinks at scale
-🔴 claiming guaranteed rankings or guaranteed AI citations
+🔴 copied commodity content
+🔴 junk backlink campaigns
+🔴 guaranteed ranking/citation promises
 ~~~
 
-Also:
+## Preferred Sources and agentic readiness
 
-- llms.txt may be used by services that support it, but Google currently says it neither helps nor hurts Google Search visibility;
-- artificial content chunking is not required for Google generative search;
-- there is no universal "AI schema";
-- do not create pages for every long-tail wording;
-- do not chase inauthentic mentions.
+When relevant, verify current official guidance before recommending:
 
-## Preferred Sources
+- Google Preferred Sources for eligible publications;
+- agent-friendly accessibility/ARIA;
+- commerce/agentic protocols.
 
-When the site is an eligible publication and current Google documentation supports it, evaluate Google Preferred Sources.
-
-Do not recommend it blindly to every business.
-
-Check:
-
-- eligibility;
-- whether the domain/subdomain appears in the source preference tool;
-- whether generative-AI inclusion is enabled where required;
-- whether an Add to Preferred Sources button or deeplink fits the site's audience strategy.
-
-Treat this as an audience preference mechanism, not a universal ranking hack.
-
-## Agentic readiness
-
-When relevant to the business, inspect whether browser agents can understand and operate the site.
-
-Look at:
-
-- semantic structure;
-- accessibility tree;
-- ARIA labels/roles/states;
-- form labels;
-- stable interactive controls;
-- clear pricing/product/action states;
-- authentication/payment boundaries;
-- current platform-specific agentic protocols.
-
-This is secondary to SEO unless agents are part of the business goal.
+Treat these as conditional features, not universal SEO hacks.
 
 ## Competitive AI visibility analysis
 
-When competitors appear in AI answers and the target site does not:
+When competitors are cited and the target is not:
 
 1. capture representative prompts;
-2. inspect which competitors are mentioned;
-3. inspect which pages are cited;
-4. identify the likely retrieval subquestions;
-5. compare title/topic alignment;
-6. compare evidence, freshness, depth, and original information;
-7. compare third-party corroboration;
-8. distinguish citation gaps from brand-mention gaps;
-9. propose the smallest content or authority change that closes the gap.
+2. inspect mentions and cited pages;
+3. infer likely retrieval subquestions;
+4. compare title/topic alignment;
+5. compare original evidence, freshness, depth, and clarity;
+6. compare third-party corroboration;
+7. separate citation gaps from brand-mention gaps;
+8. recommend the smallest evidence-backed change.
 
-Do not assume the most cited domain is "best". AI responses are probabilistic and platform behavior varies.
+Do not call the most cited domain "best". AI outputs are probabilistic.
 
 ## Measurement
 
@@ -557,19 +433,15 @@ Prefer first-party data.
 Track where available:
 
 ### Google
-
 - organic impressions/clicks;
 - query groups;
 - landing pages;
 - indexed pages;
 - Core Web Vitals;
 - rich-result issues;
-- generative AI performance;
-- AI-visible pages;
-- country/device trends.
+- generative AI performance.
 
 ### Bing / Microsoft AI
-
 - total AI citations;
 - average cited pages;
 - grounding queries;
@@ -577,37 +449,32 @@ Track where available:
 - trends.
 
 ### ChatGPT
-
 - referral traffic;
 - landing pages;
-- conversions from ChatGPT referrals;
-- observed citation/mention coverage across a stable prompt set.
+- conversions;
+- stable prompt-set citation/mention observations.
 
-### Business outcomes
-
-Always connect search visibility to:
-
+### Business
 - leads;
 - sales;
 - bookings;
-- qualified inquiries;
 - signups;
-- revenue;
-- other meaningful conversions.
+- qualified inquiries;
+- revenue.
 
-Traffic without business value is a graph humans admire before asking why revenue is flat.
+Traffic without business value is just a prettier graph.
 
 ## Prioritization
 
-Do not invent a fake search-engine score.
+Do not invent a fake platform score.
 
-Use priority levels:
+Use:
 
 ~~~text
-P0  blocks crawling/indexing or causes severe search loss
-P1  high-impact relevance/content/architecture problem
-P2  meaningful improvement opportunity
-P3  experiment, polish, or low-confidence opportunity
+P0  crawl/index blocker or severe loss
+P1  high-impact relevance/content/architecture issue
+P2  meaningful improvement
+P3  experiment / polish / low-confidence opportunity
 ~~~
 
 For each action include:
@@ -619,69 +486,63 @@ For each action include:
 - effort;
 - affected URLs;
 - exact fix;
-- verification method.
+- verification.
 
-## Default deliverable
+## Default full-audit deliverable
 
-For a full audit, return:
+Return:
 
 1. executive summary;
 2. technical blockers;
-3. content/intent findings;
+3. intent/content findings;
 4. entity/local/authority findings;
 5. AI search findings;
 6. prioritized action table;
 7. page/topic opportunities;
-8. exact examples of improved titles/sections/schema only where useful;
+8. exact examples where useful;
 9. measurement plan;
 10. myths/tactics to ignore;
-11. research date and key current sources.
+11. research date and key sources.
 
-Keep the action list implementation-ready.
+Keep it implementation-ready.
 
 ## Implementation boundary
 
-If the user asks only for analysis, do not modify their site.
+If the user asks only for analysis, do not modify the site.
 
-If the user asks for implementation and repository access exists:
+If implementation is requested and repo access exists:
 
-1. preserve this skill's SEO requirements;
+1. preserve this skill's requirements;
 2. load dev-mode;
-3. implement in coherent slices;
+3. implement coherent slices;
 4. verify rendered output and source/DOM where possible;
-5. re-run the relevant audit checks after changes.
+5. re-run relevant audit checks.
 
-Content edits that change factual claims, offers, pricing, credentials, or legal promises require source evidence or user-provided facts.
+Factual content changes require evidence or user-provided facts.
 
 ## Durable progress
 
-Long audits may span multiple WebUI turns.
-
-Preserve:
+For long audits preserve:
 
 - target site;
 - market/language;
 - audit mode;
-- pages already inspected;
-- evidence already gathered;
-- confirmed blockers;
+- pages inspected;
+- evidence gathered;
+- blockers;
 - priority actions;
 - unfinished sections;
 - exact next operation.
 
-Prefer an existing project issue/spec/document when writes are authorized.
-
-Do not restart discovery after the user says continue.
+Do not restart discovery after continue.
 
 ## Tool-budget continuity
 
-For connector-heavy work, checkpoint before the WebUI limit becomes risky.
-
-Around the repository convention's preferred checkpoint:
+Before connector-heavy work becomes risky:
 
 1. save durable state;
 2. finish the current atomic inspection;
-3. report what is complete;
+3. report completed work;
 4. end with:
 
 ~~~text
@@ -695,39 +556,28 @@ On continue, resume the exact unfinished operation.
 
 ## Fresh-session recovery
 
-When invoked as:
+For:
 
 ~~~text
 continue SEO audit on <site/project>
 ~~~
 
-first reload this skill.
+reload this skill, recover durable state, restore the priority queue, then continue.
 
-Then recover the latest durable state from the named project, issue, report, repository, or conversation-accessible artifact.
-
-Restore:
-
-- site and scope;
-- pages inspected;
-- findings;
-- evidence sources;
-- priority queue;
-- next action.
-
-Do not make the user repeat information that is already retrievable.
+Do not make the user repeat retrievable facts.
 
 ## Completion
 
-An SEO + AI SEO audit is complete when:
+The audit is complete when:
 
-- important crawl/index blockers are known;
-- intent and page-role conflicts are identified;
-- content gaps are tied to real user/search needs;
+- crawl/index blockers are known;
+- intent/page-role conflicts are identified;
+- content gaps map to real user needs;
 - AI crawler/access issues are checked;
-- AI-specific tactics are labeled by evidence strength;
+- AI-specific tactics are evidence-tiered;
 - local/ecommerce requirements are covered when relevant;
-- recommendations are prioritized and actionable;
+- actions are prioritized;
 - measurement is defined;
 - unsupported hacks are separated from evidence-backed work.
 
-Do not promise rankings. Produce evidence, fixes, and a system that can be measured.
+Do not promise rankings. Produce evidence, fixes, and a measurable system.

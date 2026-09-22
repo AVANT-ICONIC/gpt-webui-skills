@@ -1,6 +1,6 @@
 # GPT WebUI Skills
 
-A tiny set of workflow skills for substantial project work in **ChatGPT WebUI**.
+A growing set of WebUI-native skills for substantial and specialized work in **ChatGPT WebUI**.
 
 These skills are intentionally WebUI-specific. They account for conversational planning, connector-based repository work, per-turn tool limits, durable checkpoints, `continue`, fresh-session recovery, and clean handoff to a local coding agent.
 
@@ -42,17 +42,11 @@ Remove any older custom-instruction block that describes PLAN MODE, SPEC MODE, D
 Replace that whole workflow block with:
 
 ```text
-For substantial project planning, specification, or development work, load and follow the appropriate skill from https://github.com/AVANT-ICONIC/gpt-webui-skills before proceeding.
+Before substantial or specialized work, check https://github.com/AVANT-ICONIC/gpt-webui-skills for a matching skill. If one exists, load its current SKILL.md and follow it. Treat that repository as canonical and discover available skills from it rather than relying on a hard-coded list.
 
-Use:
-- plan-mode for ideas, architecture, features, workflows, and uncertain changes.
-- spec-mode when the important decisions are settled and need to become an implementation-ready specification.
-- dev-mode when an agreed specification should be implemented, verified, or handed off to a local coding agent.
-- video-watch when I ask you to watch, inspect, review, summarize, or answer questions about a video URL or uploaded video; use real visual frames, not transcript-only analysis.
+If I say "continue", resume the active skill from its latest durable checkpoint without restarting discovery. In a fresh chat, recover the matching skill and durable project state first.
 
-If I say "continue", resume the active skill from its latest durable checkpoint without restarting discovery. In a fresh chat, "continue plan/spec/dev on <project or repo>" means reload the matching skill and recover durable state first.
-
-When WebUI cannot or should not finish work that requires the local machine, or when I ask for a handoff, use DEV MODE's Local Handoff phase and produce a self-contained continuation packet for Codex, Claude Code, or another local agent. Do not make the local agent rediscover settled context.
+If work must continue on my local machine or with another coding agent, follow the active skill's handoff instructions and preserve settled context.
 ```
 
 Keep unrelated personal preferences and non-workflow Custom Instructions unchanged.

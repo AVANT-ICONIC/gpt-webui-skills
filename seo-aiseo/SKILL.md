@@ -109,6 +109,24 @@ Before diagnosing:
 
 Do not assume a rendered page equals crawler-visible content.
 
+## Site truth and entity lock
+
+Before a full audit, establish a compact truth set for claims that must not drift:
+
+- canonical brand name and allowed short forms;
+- one-sentence definition;
+- primary conversion;
+- audience and disqualifiers;
+- geography, language, and currency;
+- public pricing or pricing model when it exists;
+- real proof assets;
+- legally/commercially frozen pages;
+- retrieval-vs-training crawler policy.
+
+For substantial work, preserve these facts in the project's existing source of truth or create a concise `SITE_TRUTH.md` / `ENTITY.md` only when durable artifacts are useful and authorized.
+
+Never invent a missing fact. Missing proof is a content gap, not permission to manufacture evidence.
+
 ## Choose audit depth
 
 ### Quick audit
@@ -152,13 +170,13 @@ Never manufacture claims, reviews, case studies, prices, or credentials.
 Always work in this order:
 
 ~~~text
-1 technical
+1 site truth + crawl/index
 2 architecture + intent
-3 on-page
+3 on-page + conversion
 4 information gain
 5 structured data
 6 entity / local / authority
-7 AI search
+7 AI search + baseline
 8 measurement
 ~~~
 
@@ -229,6 +247,27 @@ Evaluate:
 
 Avoid corporate fog before the answer. Search engines and humans both have better things to do.
 
+## Conversion and five-second test
+
+For money pages, verify that a first-time visitor can quickly answer:
+
+1. What is this?
+2. Who is it for?
+3. What do I get?
+4. Why should I believe it?
+5. What do I do next?
+
+Prefer structural fixes, answer blocks, proof placement, pricing/inclusion clarity, and CTA improvements before rewriting finished body copy.
+
+Check:
+
+- one clear primary conversion per page;
+- a visible next step on mobile;
+- proof near decision points;
+- explicit scope, pricing model, timeline, availability, or booking path when known;
+- forms limited to information needed for the next step;
+- policy/contact information available as crawlable text.
+
 ## 4. Information gain
 
 Prioritize non-commodity content:
@@ -298,6 +337,31 @@ For local businesses, verify complete business information and evaluate relevanc
 
 ## 7. AI search
 
+### AI visibility baseline
+
+Before substantial AI-search optimization, build a stable prompt set from real buyer language and record a before-state.
+
+Default prompt families:
+
+- category / "best for" queries;
+- job-to-be-done queries;
+- comparisons;
+- local intent when relevant;
+- price/cost questions;
+- fit/use-case questions;
+- agent tasks such as finding an offer under explicit constraints.
+
+Across available engines, record at minimum:
+
+- date;
+- brand mentioned?
+- site cited?
+- recommendation vs simple mention;
+- incorrect or missing facts;
+- cited competitor/source.
+
+Re-run the same prompt set after meaningful changes. Do not invent a proprietary GEO score.
+
 ### Google AI features
 
 Treat normal SEO as the foundation.
@@ -364,6 +428,17 @@ Check current Perplexity crawler guidance and verify PerplexityBot access when d
 
 Keep Perplexity-specific tactics platform-specific.
 
+### Retrieval vs training crawlers
+
+Treat search/retrieval access separately from model-training policy.
+
+Examples that must be re-verified against current first-party documentation:
+
+- OpenAI: `OAI-SearchBot` for search discovery vs `GPTBot` for model-development crawling;
+- Anthropic: `Claude-SearchBot` for search, `Claude-User` for user-directed fetches, and `ClaudeBot` for model-development crawling.
+
+A site can permit retrieval while restricting training. Verify robots.txt, CDN/WAF behavior, and any crawler-specific controls independently.
+
 ## AI citation heuristics
 
 These are tests, not guaranteed ranking factors.
@@ -400,6 +475,25 @@ Do not rewrite pages into robotic fragments merely to appear "AI-readable".
 🔴 junk backlink campaigns
 🔴 guaranteed ranking/citation promises
 ~~~
+
+## Agent-readable offer card
+
+For a product or bookable service, verify that public HTML and truthful structured data let a research/shopping agent extract without guessing:
+
+- brand;
+- category;
+- audience;
+- primary offer;
+- price or how pricing works;
+- geographic/legal limits;
+- availability or how to buy/book;
+- proof;
+- primary CTA URL;
+- contact method;
+- stated differentiators;
+- stated disqualifiers / not-a-fit conditions.
+
+Missing fields are explicit gaps. Do not infer or fabricate them.
 
 ## Preferred Sources and agentic readiness
 

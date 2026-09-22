@@ -24,7 +24,8 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | --- | --- | --- |
 | [Plan Mode](./plan-mode/SKILL.md) | Turn a fuzzy idea into settled decisions | Interactive, 2–3 independent decision threads per round |
 | [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |
-| [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |\n| [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
+| [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
+| [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 
 ## Install
 
@@ -46,7 +47,8 @@ For substantial project planning, specification, or development work, load and f
 Use:
 - plan-mode for ideas, architecture, features, workflows, and uncertain changes.
 - spec-mode when the important decisions are settled and need to become an implementation-ready specification.
-- dev-mode when an agreed specification should be implemented, verified, or handed off to a local coding agent.\n- video-watch when I ask you to watch, inspect, review, summarize, or answer questions about a video URL or uploaded video; use real visual frames, not transcript-only analysis.
+- dev-mode when an agreed specification should be implemented, verified, or handed off to a local coding agent.
+- video-watch when I ask you to watch, inspect, review, summarize, or answer questions about a video URL or uploaded video; use real visual frames, not transcript-only analysis.
 
 If I say "continue", resume the active skill from its latest durable checkpoint without restarting discovery. In a fresh chat, "continue plan/spec/dev on <project or repo>" means reload the matching skill and recover durable state first.
 
@@ -67,6 +69,7 @@ Start a new chat and try:
 plan a new project
 spec this project
 dev this repo
+watch https://youtu.be/VIDEO_ID
 ```
 
 ChatGPT should load the matching `SKILL.md` before substantial work.
@@ -97,6 +100,15 @@ dev <repo / specification>
 
 Dev Mode implements the agreed specification, verifies the result, and keeps product decisions separate from execution.
 
+### Video Watch
+
+```text
+watch <video URL / uploaded video> [question]
+```
+
+Video Watch resolves the actual video, extracts scene-change + timeline-coverage + dense opening frames, packs them into timestamped contact sheets, and has ChatGPT inspect those images alongside available captions.
+
+It is intentionally WebUI-specific: contact sheets reduce dozens of visual frames to a small number of image-tool calls, while focused `--start` / `--end` passes allow closer inspection of important ranges.
 ### Local handoff
 
 Use:

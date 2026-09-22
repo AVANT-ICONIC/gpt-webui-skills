@@ -25,7 +25,7 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Plan Mode](./plan-mode/SKILL.md) | Turn a fuzzy idea into settled decisions | Interactive, 2–3 independent decision threads per round |
 | [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
-| [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
+| [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |\n| [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
 
 
 ## Visual-first skill convention
@@ -83,7 +83,7 @@ Start a new chat and try:
 plan a new project
 spec this project
 dev this repo
-watch https://youtu.be/VIDEO_ID
+watch https://youtu.be/VIDEO_ID\nseo audit https://example.com
 ```
 
 ChatGPT should load the matching `SKILL.md` before substantial work.

@@ -9,6 +9,38 @@ Turn settled decisions into a buildable specification.
 
 Spec Mode is not another planning interview. The default behavior is autonomous: inspect the project, resolve factual gaps, write or refine the specification, verify coherence, and continue until the spec is ready for implementation.
 
+## Visual chat presentation
+
+Make user-facing chat output **highly visual and skimmable by default**. Use visual structure aggressively when it helps the user scan progress, state, options, or conclusions.
+
+Prefer a rich mix of:
+
+- emoji markers and icons;
+- semantic color circles: 🟢 complete/success, 🟡 active/attention, 🔴 blocked/error, 🔵 information, 🟣 decision/creative, ⚪ neutral;
+- ASCII/Unicode banners, boxes, separators, arrows, trees, and simple flow diagrams;
+- progress bars such as `██████░░░░ 60%`;
+- compact status dashboards, matrices, timelines, and comparison tables;
+- short visual checkpoints during multi-step work.
+
+For longer answers, distribute visual anchors throughout the response instead of putting one decorative header at the top and then dumping a wall of text.
+
+Useful patterns include:
+
+```text
+╭─ STATUS ─────────────────╮
+│ 🟢 done     ████████░░ 80%
+│ 🟡 active   █████░░░░░
+│ 🔴 blocked  none
+╰──────────────────────────╯
+
+━━━ NEXT ━━━━━━━━━━━━━━━━━━━
+├─ 🔵 inspect
+├─ 🟣 decide
+└─ 🟢 verify
+```
+
+Keep the visuals informative rather than random decoration. Do not alter exact code, commands, file contents, specifications, quoted text, or other copy-paste artifacts merely to decorate them. Frame those artifacts visually around the outside instead.
+
 ## Entry condition
 
 Start only when the important product and architecture decisions are already settled.

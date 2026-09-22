@@ -27,6 +27,26 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 
+
+## Visual-first skill convention
+
+Every skill should make ChatGPT's **user-facing chat output visually dense and easy to scan**. New `SKILL.md` files should include the repository's visual chat guidance: semantic emoji/color circles, progress bars, ASCII/Unicode boxes and separators, trees/flows, compact dashboards, and other useful visual anchors.
+
+```text
+🟢 complete   ██████████ 100%
+🟡 active     ██████░░░░  60%
+🔴 blocked    ██░░░░░░░░  20%
+
+╭─ CHECKPOINT ─────────────╮
+│ 🔵 state                 │
+│ 🟣 decision              │
+│ 🟢 next action           │
+╰──────────────────────────╯
+```
+
+Visuals should improve comprehension, not corrupt exact code, commands, specifications, file contents, or reusable artifacts.
+
+
 ## Install
 
 ### ChatGPT Web / Desktop

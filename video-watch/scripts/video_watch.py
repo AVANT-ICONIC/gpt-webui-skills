@@ -155,7 +155,7 @@ def acquire(source: str, work: Path, yt_dlp: str | None, sub_langs: str) -> tupl
         "--sub-langs", sub_langs,
         "--sub-format", "vtt",
         "--convert-subs", "vtt",
-        "-f", "bv*[height<=720]+ba/b[height<=720]/bv+ba/b",
+        "-f", "bv*[height<=720]+ba/b[height<=720]",
         "--merge-output-format", "mp4",
         "-o", template,
         "--", source,
@@ -570,6 +570,8 @@ def main() -> int:
             args.frame_width, offset,
         )
         frames = enforce_budget(scene + coverage + hook, max(12, min(args.max_frames, 96)))
+        if not frames:
+            raise RuntimeError("No visual frames were extracted")
 
         sheets = build_contact_sheets(
             frames, work / "contact_sheets",

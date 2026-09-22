@@ -24,7 +24,7 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | --- | --- | --- |
 | [Plan Mode](./plan-mode/SKILL.md) | Turn a fuzzy idea into settled decisions | Interactive, 2–3 independent decision threads per round |
 | [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |
-| [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
+| [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |\n| [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 
 ## Install
 

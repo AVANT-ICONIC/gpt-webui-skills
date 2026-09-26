@@ -26,7 +26,8 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
-| [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |\n| [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion loaded alongside substantial task skills | Always apply |
+| [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
+| [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion loaded alongside substantial task skills | Always apply |
 
 
 ## Skill composition

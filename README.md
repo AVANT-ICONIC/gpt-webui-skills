@@ -27,25 +27,23 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 | [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
+| [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion loaded alongside substantial task skills | Always apply |
 
 
-## Visual-first skill convention
+## Skill composition
 
-Every skill should make ChatGPT's **user-facing chat output visually dense and easy to scan**. New `SKILL.md` files should include the repository's visual chat guidance: semantic emoji/color circles, progress bars, ASCII/Unicode boxes and separators, trees/flows, compact dashboards, and other useful visual anchors.
+Skills can be **task skills** or **cross-cutting companion skills**.
 
 ```text
-🟢 complete   ██████████ 100%
-🟡 active     ██████░░░░  60%
-🔴 blocked    ██░░░░░░░░  20%
-
-╭─ CHECKPOINT ─────────────╮
-│ 🔵 state                 │
-│ 🟣 decision              │
-│ 🟢 next action           │
-╰──────────────────────────╯
+task skill       = what to do
+companion skill  = shared behavior that applies across tasks
 ```
 
-Visuals should improve comprehension, not corrupt exact code, commands, specifications, file contents, or reusable artifacts.
+`visual-chat` is the first companion skill. It owns user-facing chat presentation for substantial work and is marked `always-apply: true`.
+
+Shared behavior should live in one companion skill rather than being copied into every task skill. New skills should not duplicate visual presentation rules from `visual-chat`.
+
+A task skill must remain semantically complete without relying on visual formatting. Companion skills may change presentation, workflow hygiene, or other cross-cutting behavior, but must not silently change the task's domain rules.
 
 
 ## Install
@@ -63,11 +61,11 @@ Remove any older custom-instruction block that describes PLAN MODE, SPEC MODE, D
 Replace that whole workflow block with:
 
 ```text
-Before substantial or specialized work, check https://github.com/AVANT-ICONIC/gpt-webui-skills for a matching skill. If one exists, load its current SKILL.md and follow it. Treat that repository as canonical and discover available skills from it rather than relying on a hard-coded list.
+Before substantial or specialized work, check https://github.com/AVANT-ICONIC/gpt-webui-skills for relevant skills. Load every applicable companion skill marked `always-apply: true`, then load the matching task skill(s). Treat that repository as canonical and discover skills from it rather than relying on a hard-coded list.
 
-If I say "continue", resume the active skill from its latest durable checkpoint without restarting discovery. In a fresh chat, recover the matching skill and durable project state first.
+If I say "continue", resume the active skill set from its latest durable checkpoint without restarting discovery. In a fresh chat, recover the matching skills and durable project state first.
 
-If work must continue on my local machine or with another coding agent, follow the active skill's handoff instructions and preserve settled context.
+If work must continue on my local machine or with another coding agent, follow the active task skill's handoff instructions and preserve settled context.
 ```
 
 Keep unrelated personal preferences and non-workflow Custom Instructions unchanged.

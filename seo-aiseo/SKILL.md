@@ -29,20 +29,6 @@ conversion
 
 Do not optimize AI citations while crawling, indexing, relevance, or basic content quality is broken.
 
-## Visual chat presentation
-
-Make user-facing output highly visual and easy to scan.
-
-Prefer:
-
-- 🟢 good / verified;
-- 🟡 opportunity / medium confidence;
-- 🔴 blocker / risk;
-- 🔵 first-party evidence;
-- 🟣 experiment / hypothesis;
-- compact dashboards, trees, tables, and progress bars.
-
-Do not decorate exact code, schema, metadata, robots directives, or copy-paste artifacts in ways that alter them.
 
 ## Activation
 

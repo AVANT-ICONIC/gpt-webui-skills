@@ -230,6 +230,14 @@ Plan Mode is inspired by the useful separation in [Matt Pocock's skills](https:/
 
 This repository combines those ideas into one WebUI-native planning stage rather than requiring the user to choose between separate planning tools.
 
+## Contributing
+
+Contributions are welcome when they keep the repository focused and WebUI-native. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## License
+
+MIT. See [LICENSE](./LICENSE).
+
 ---
 
 Built for ChatGPT WebUI. Small on purpose.

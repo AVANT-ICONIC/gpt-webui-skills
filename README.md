@@ -5,7 +5,9 @@ A growing set of WebUI-native skills for substantial and specialized work in **C
 These skills are intentionally WebUI-specific. They account for conversational planning, connector-based repository work, per-turn tool limits, durable checkpoints, `continue`, fresh-session recovery, and clean handoff to a local coding agent.
 
 ```text
-idea
+idea / brain dump
+  ↓
+INTENT MODE
   ↓
 PLAN MODE
   ↓
@@ -22,6 +24,7 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 
 | Skill | Purpose | Style |
 | --- | --- | --- |
+| [Intent Mode](./intent-mode/SKILL.md) | Reconstruct the real objective from messy or ambiguous input | Context-rich, gap-seeking, minimal interview |
 | [Plan Mode](./plan-mode/SKILL.md) | Turn a fuzzy idea into settled decisions | Interactive, 2–3 independent decision threads per round |
 | [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
@@ -79,6 +82,7 @@ For repository work, connect GitHub or another source that lets ChatGPT inspect 
 Start a new chat and try:
 
 ```text
+intent reconstruct this brain dump
 plan a new project
 spec this project
 dev this repo
@@ -89,6 +93,14 @@ seo audit https://example.com
 ChatGPT should load the matching `SKILL.md` before substantial work.
 
 ## Usage
+
+### Intent
+
+```text
+intent <brain dump / fuzzy request / project idea>
+```
+
+Intent Mode reconstructs the underlying objective, separates outcome from proposed solution, surfaces assumptions and contradictions, defines observable success criteria, and routes the result to Plan Mode or directly to Spec Mode when the important decisions are already settled.
 
 ### Plan
 

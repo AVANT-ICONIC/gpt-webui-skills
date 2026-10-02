@@ -7,6 +7,14 @@ description: Autonomous ChatGPT WebUI development that implements an agreed spec
 
 Implement the agreed specification and prove the result.
 
+## OpenSpec projects
+
+For a non-trivial code change in a project that already uses OpenSpec, load `openspec-workflow` before implementation.
+
+Identify the exact existing OpenSpec change and implement through the project's native Apply semantics. If no suitable change exists, do not improvise one from chat memory and start coding anyway. Route through OpenSpec Explore or Propose first.
+
+Dev Mode owns execution; OpenSpec owns the current change contract.
+
 Dev Mode is execution-oriented. Do not reopen settled product decisions merely because another implementation route is possible.
 
 
@@ -46,8 +54,9 @@ Use this rule:
 ```text
 repo fact → inspect it
 implementation detail inside the spec → decide and execute
-spec inconsistency → reconcile in Spec Mode
-material product/scope decision → return to Plan Mode
+spec inconsistency in OpenSpec project → update/reconcile the OpenSpec change
+standalone spec inconsistency → reconcile in Spec Mode
+material product/scope decision above one change → return to Plan Mode
 ```
 
 Do not silently change user-visible behavior, scope, non-goals, or acceptance criteria to make implementation easier.

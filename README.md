@@ -7,17 +7,19 @@ These skills are intentionally WebUI-specific. They account for conversational p
 ```text
 idea / brain dump
   ↓
-INTENT MODE
+INTENT MODE, only when needed
   ↓
-PLAN MODE
+PLAN MODE, for project-level decisions
   ↓
-SPEC MODE
+concrete non-trivial code change
   ↓
-DEV MODE
+OPENSPEC WORKFLOW
+Explore → Propose → Apply → Verify/quality gates → Archive
   ↓
 done
-  or
-LOCAL HANDOFF → Codex / Claude Code / local agent
+
+Projects without a native OpenSpec workflow may use SPEC MODE → DEV MODE.
+LOCAL HANDOFF remains available when execution must continue elsewhere.
 ```
 
 ## Skills
@@ -25,8 +27,9 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | Skill | Purpose | Style |
 | --- | --- | --- |
 | [Intent Mode](./intent-mode/SKILL.md) | Reconstruct the real objective from messy or ambiguous input | Context-rich, gap-seeking, minimal interview |
-| [Plan Mode](./plan-mode/SKILL.md) | Turn a fuzzy idea into settled decisions | Interactive, 2–3 independent decision threads per round |
-| [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |
+| [Plan Mode](./plan-mode/SKILL.md) | Settle project-level or multi-change decisions without duplicating OpenSpec change exploration | Interactive, 2–3 independent decision threads per round |
+| [OpenSpec Workflow](./openspec-workflow/SKILL.md) | Route non-trivial OpenSpec code changes through native Explore → Propose → Apply → verify/archive | OpenSpec-first, change-scoped |
+| [Spec Mode](./spec-mode/SKILL.md) | Build standalone specs when no native change workflow owns the work; delegates OpenSpec projects | Autonomous, continuation-driven |
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 | [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
@@ -84,6 +87,7 @@ Start a new chat and try:
 ```text
 intent reconstruct this brain dump
 plan a new project
+use OpenSpec for this feature
 spec this project
 dev this repo
 watch https://youtu.be/VIDEO_ID
@@ -100,7 +104,7 @@ ChatGPT should load the matching `SKILL.md` before substantial work.
 intent <brain dump / fuzzy request / project idea>
 ```
 
-Intent Mode reconstructs the underlying objective, separates outcome from proposed solution, surfaces assumptions and contradictions, defines observable success criteria, and routes the result to Plan Mode or directly to Spec Mode when the important decisions are already settled.
+Intent Mode reconstructs the underlying objective, separates outcome from proposed solution, surfaces assumptions and contradictions, defines observable success criteria, and routes concrete non-trivial code changes in OpenSpec projects into OpenSpec Workflow once the actual intent is clear.
 
 ### Plan
 
@@ -108,7 +112,17 @@ Intent Mode reconstructs the underlying objective, separates outcome from propos
 plan <idea / project / feature>
 ```
 
-Plan Mode is the human-in-the-loop stage. It asks compact rounds of independent questions, recommends answers, retrieves facts itself, and keeps dependent decisions out of the current round.
+Plan Mode is the human-in-the-loop stage for decisions above one concrete change: product direction, architecture programs, multi-change sequencing, and similar project-level choices. A concrete change in an OpenSpec project should move into OpenSpec Workflow instead of completing a second parallel planning interview.
+
+### OpenSpec Workflow
+
+```text
+use OpenSpec for <feature / bug / refactor / migration>
+spec it with OpenSpec
+continue the existing OpenSpec change
+```
+
+For a project that already uses OpenSpec, this is the default workflow for non-trivial code changes. It inspects the project's existing OpenSpec root and native skills, routes uncertainty to Explore, clear work to Propose, implementation to Apply, and completion through verification/project gates before archive. It does not duplicate OpenSpec's official skill bodies or silently initialize OpenSpec in projects that do not use it.
 
 ### Spec
 
@@ -116,7 +130,7 @@ Plan Mode is the human-in-the-loop stage. It asks compact rounds of independent 
 spec <project / repo / settled plan>
 ```
 
-Spec Mode consumes settled planning decisions and builds the specification autonomously. It prefers an existing OpenSpec setup when one is present and follows that project's schema. Otherwise it can produce the default OpenSpec-style `proposal → specs → design → tasks` shape.
+Spec Mode is now primarily for standalone specification work when no native change workflow owns the task. If the target repository already uses OpenSpec, Spec Mode delegates to OpenSpec Workflow early instead of waiting until all planning is finished and exporting it afterward.
 
 ### Dev
 
@@ -124,7 +138,7 @@ Spec Mode consumes settled planning decisions and builds the specification auton
 dev <repo / specification>
 ```
 
-Dev Mode implements the agreed specification, verifies the result, and keeps product decisions separate from execution.
+Dev Mode implements the agreed specification and verifies the result. In an OpenSpec project it must identify the exact current change and execute through OpenSpec Workflow / native Apply semantics rather than starting ad-hoc code from chat memory.
 
 ### Video Watch
 
@@ -217,9 +231,11 @@ Different tools or future WebUI versions may have different limits. The skills m
 
 ## OpenSpec
 
-Spec Mode uses [OpenSpec](https://github.com/Fission-AI/OpenSpec) as the preferred specification system when the target project already uses it.
+[OpenSpec](https://github.com/Fission-AI/OpenSpec) is treated as a live change workflow for repositories that use it, not merely as the output format of Spec Mode.
 
-Current OpenSpec workflows are schema-driven. The familiar `proposal → specs → design → tasks` flow is the default, not a format that should be blindly hard-coded over an existing project schema.
+The WebUI router follows the project's native OpenSpec setup and official generated skills. Material uncertainty belongs in Explore; sufficiently clear changes go to Propose; implementation proceeds from the agreed change; verification and project-specific quality gates precede archive.
+
+Current OpenSpec workflows are schema-driven and iterative. The familiar `proposal → specs → design → tasks` graph is common, not a format that should be blindly hard-coded over an existing project schema. OpenSpec should also stay change-scoped: do not create giant whole-application specs when focused incremental changes are the useful unit.
 
 ## Planning model
 

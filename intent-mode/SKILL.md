@@ -173,7 +173,7 @@ Plan Mode must not restart intent discovery unless new evidence invalidates the 
 
 ### → OpenSpec Workflow
 
-When the target is a concrete non-trivial code change in a project that already uses OpenSpec, hand the Intent Brief to OpenSpec Workflow. Let that workflow choose native OpenSpec Explore vs Propose from the remaining change-specific uncertainty.
+When the target is a concrete non-trivial code change in a project that already uses OpenSpec, hand the Intent Brief to `openspec-workflow`. Let that workflow choose native OpenSpec Explore vs Propose from the remaining change-specific uncertainty.
 
 Do not force a separate Plan Mode and Spec Mode pass merely because those modes exist.
 

@@ -30,7 +30,7 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 | [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
-| [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion loaded alongside substantial task skills | Always apply |
+| [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion, including a functional Continue button when interactive controls are supported | Always apply |
 
 
 ## Skill composition
@@ -43,6 +43,8 @@ companion skill  = shared behavior that applies across tasks
 ```
 
 `visual-chat` is the first companion skill. It owns user-facing chat presentation for substantial work and is marked `always-apply: true`.
+
+Visual Chat also asks for a small **Continue** button in ordinary WebUI answers when the client supports real interactive actions. It should send a user-triggered follow-up that resumes the latest task/checkpoint or requests the named next phase. It never authorizes unrequested work; exact-output constraints and unsupported interfaces take precedence.
 
 Shared behavior should live in one companion skill rather than being copied into every task skill. New skills should not duplicate visual presentation rules from `visual-chat`.
 

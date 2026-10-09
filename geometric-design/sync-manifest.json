@@ -3,7 +3,7 @@
   "policyVersion": "geometry-policy/1",
   "canonicalRepository": "AVANT-ICONIC/skills",
   "canonicalPath": "geometric-design/references/geometry-policy.md",
-  "canonicalCommit": "ddd9dbb88386b7561ed9c5103bdfb19e5abbd374",
+  "canonicalCommit": "6b157f793333776a5c3f7007d456457904a356f2",
   "canonicalSha256": "51ea079f36339a1aadc90fe2a21b2b822e3af789d1ec33e6c97c23aa4178ad7c",
   "snapshotSha256": "51ea079f36339a1aadc90fe2a21b2b822e3af789d1ec33e6c97c23aa4178ad7c",
   "syncMethod": "exact-utf8+sha256",

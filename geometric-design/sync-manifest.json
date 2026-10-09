@@ -1,0 +1,11 @@
+{
+  "schema": "geometric-design-rule-sync/1",
+  "policyVersion": "geometry-policy/1",
+  "canonicalRepository": "AVANT-ICONIC/skills",
+  "canonicalPath": "geometric-design/references/geometry-policy.md",
+  "canonicalCommit": "243419b47b37144454c0eba8e8c88db37a850d92",
+  "canonicalSha256": "67c5e2fe412a63cb371444d6fd789c3bdd2422b21a91821b3f802ef9c9d20cdf",
+  "snapshotSha256": "67c5e2fe412a63cb371444d6fd789c3bdd2422b21a91821b3f802ef9c9d20cdf",
+  "syncMethod": "exact-utf8+sha256",
+  "adaptersIndependent": true
+}

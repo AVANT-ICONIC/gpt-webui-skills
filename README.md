@@ -24,6 +24,7 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 
 | Skill | Purpose | Style |
 | --- | --- | --- |
+| [Geometric Design](./geometric-design/SKILL.md) | **Experimental alpha technical preview**, source-backed symbol geometry, nested compositions, responsive UI tokens and technical audits; no proven independent creative superiority | Capability-aware, geometry-evidence-first |
 | [Intent Mode](./intent-mode/SKILL.md) | Reconstruct the real objective from messy or ambiguous input | Context-rich, gap-seeking, minimal interview |
 | [Plan Mode](./plan-mode/SKILL.md) | Turn a fuzzy idea into settled decisions | Interactive, 2–3 independent decision threads per round |
 | [Spec Mode](./spec-mode/SKILL.md) | Turn settled decisions into an implementation-ready specification | Autonomous, continuation-driven |

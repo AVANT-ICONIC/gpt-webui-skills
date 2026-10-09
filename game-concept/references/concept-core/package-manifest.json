@@ -1,0 +1,68 @@
+{
+  "files": [
+    {
+      "bytes": 3114,
+      "generated_path": "coverage.json",
+      "sha256": "c6f928254f0e5b63fde18b4485e54dbdd3f27ad71b81a8e8fa53bc6342ca96c1",
+      "source_path": "game-studio/references/concept-core/coverage.json"
+    },
+    {
+      "bytes": 4041,
+      "generated_path": "framing.md",
+      "sha256": "4a0ed043d0930f8427c16f308b925e044aa07db857c8164da7b83f3b454a9a10",
+      "source_path": "game-studio/references/concept-core/framing.md"
+    },
+    {
+      "bytes": 3936,
+      "generated_path": "mechanism-synthesis.md",
+      "sha256": "3ae6d2fb16172e06e5a95add2ac40ca1a96e959e7427ea325275ed80babdfac4",
+      "source_path": "game-studio/references/concept-core/mechanism-synthesis.md"
+    },
+    {
+      "bytes": 3685,
+      "generated_path": "player-interaction.md",
+      "sha256": "e48ce85d85b54cb8d95392e171aa774ff55fa633153ae9d2d0048af44c364b51",
+      "source_path": "game-studio/references/concept-core/player-interaction.md"
+    },
+    {
+      "bytes": 3821,
+      "generated_path": "systems-and-economy.md",
+      "sha256": "d48c60fe755b03c7f2613829bf21836e5fd2b4ad8c2285fee40e234ecf1bbb79",
+      "source_path": "game-studio/references/concept-core/systems-and-economy.md"
+    },
+    {
+      "bytes": 3191,
+      "generated_path": "progression-and-variation.md",
+      "sha256": "2bbd75d80a3f6835993c46d0af050eab7198c319d698e57cb52a123764985d8a",
+      "source_path": "game-studio/references/concept-core/progression-and-variation.md"
+    },
+    {
+      "bytes": 3317,
+      "generated_path": "experience-and-game-feel.md",
+      "sha256": "cfbcc63c485310719fce2765d2b39b23a97168a89455203760f9ad07f08301af",
+      "source_path": "game-studio/references/concept-core/experience-and-game-feel.md"
+    },
+    {
+      "bytes": 2904,
+      "generated_path": "pitch-market-and-scope.md",
+      "sha256": "700b4242a9472b98d2ede525233865ac14f8185bd16f7f551e5ac659127bb538",
+      "source_path": "game-studio/references/concept-core/pitch-market-and-scope.md"
+    },
+    {
+      "bytes": 3120,
+      "generated_path": "reality-check-and-playtest.md",
+      "sha256": "f8518c196cca4d1cbccdbe8af687c7f5182ec5edbe2a219626e911563ed65ed3",
+      "source_path": "game-studio/references/concept-core/reality-check-and-playtest.md"
+    },
+    {
+      "bytes": 4526,
+      "generated_path": "existing-game-rescue.md",
+      "sha256": "4791bc8dfe9f53748d260243e2ff663a852df59ba410c2909a38cbf7d71b5557",
+      "source_path": "game-studio/references/concept-core/existing-game-rescue.md"
+    }
+  ],
+  "generator_version": "1.0.0",
+  "schema_version": 1,
+  "source_revision": "76f4aaf2540ad5620fd6a0e7fd252646e12901a5",
+  "source_root": "game-studio/references/concept-core"
+}

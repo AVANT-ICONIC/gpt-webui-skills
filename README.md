@@ -30,6 +30,7 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Dev Mode](./dev-mode/SKILL.md) | Implement, verify, and optionally hand off to a local agent | Autonomous, continuation-driven |
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 | [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
+| [Game Concept](./game-concept/SKILL.md) | Mechanically distinct playable ideas, concrete first-minute controls and read-only game rescue | Creative reasoning |
 | [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion, including a functional Continue button when interactive controls are supported | Always apply |
 
 

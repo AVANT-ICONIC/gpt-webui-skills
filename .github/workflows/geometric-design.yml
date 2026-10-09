@@ -21,6 +21,13 @@ jobs:
           node-version: '22'
       - name: Local snapshot and tamper regressions
         run: node --test geometric-design/tests/*.test.mjs
+      - name: Fresh standalone WebUI-folder consumer test
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest="$(mktemp -d)"
+          cp -a geometric-design/. "$dest/"
+          ( cd "$dest" && node --test tests/*.test.mjs && node verify-sync.mjs )
       - name: Verify immutable canonical portable source over GitHub
         shell: bash
         run: |

@@ -5,6 +5,8 @@ description: Plan and inspect geometric logos, nested compositions, UI proportio
 
 # Geometric Design · WebUI
 
+**EXPERIMENTAL ALPHA candidate; still draft/unmerged.** Supported technical workflow only. No independent blind recognition review or matched-agent creative-uplift proof (T3/T4 `NOT_EVALUATED`).
+
 **Read [bundled canonical policy](references/geometry-policy.md) first.** This skill works with this folder alone. It never assumes the portable engine, a Node process, a browser or an image renderer is available in the ChatGPT session.
 
 ## Specialist routing
@@ -13,7 +15,7 @@ description: Plan and inspect geometric logos, nested compositions, UI proportio
 2. **Composition:** preserve hierarchy and reading order, create genuinely different region-tree families unless exact reference fidelity is requested; name intentional φ/diagonal relationships rather than decorating with post-hoc golden overlays.
 3. **Standalone source audit:** report actual source digest, field-linked metrics and declared constraints. A visual match to φ without source provenance is **inferred**, never established design intent. No automatic modification of approved artwork.
 4. **Responsive UI tokens:** bounded ratio-based typography, spacing, modal sizes and touch targets; content at 320/390/768/1280/1920 and 200% text takes precedence over ratios; verify actual browser output if possible.
-5. **Grammar and QA:** enforce split/align/focal/safe-zone/rhythm/vary rules and distinguish mathematical, pixel, accessibility and human-creative evidence. The 20px S5 card gap versus proportional default is an unapplied, explicitly documented token exception.
+5. **Grammar and QA:** enforce split/align/focal/safe-zone/rhythm/vary rules and distinguish mathematical, pixel, accessibility and human-creative evidence. Owner-approved Spacing Option 0 preserves existing CSS. The composition contract now references the shipped rem-based `gap-card` token (~12.944px at root16; ~25.888px at root32); a declared model is not a measured browser layout.
 
 ## Capabilities and handoff
 

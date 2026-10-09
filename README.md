@@ -31,6 +31,7 @@ LOCAL HANDOFF → Codex / Claude Code / local agent
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 | [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
 | [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion, including a functional Continue button when interactive controls are supported | Always apply |
+| [Visual Gauntlet](./visual-gauntlet/SKILL.md) | Inspect actual rendered visual output, reference fidelity, motion and real interactions; recover honestly when tools are missing | Visual QA companion |
 
 
 ## Skill composition
@@ -45,6 +46,8 @@ companion skill  = shared behavior that applies across tasks
 `visual-chat` is the first companion skill. It owns user-facing chat presentation for substantial work and is marked `always-apply: true`.
 
 Visual Chat also asks for a small **Continue** button in ordinary WebUI answers when the client supports real interactive actions. It should send a user-triggered follow-up that resumes the latest task/checkpoint or requests the named next phase. It never authorizes unrequested work; exact-output constraints and unsupported interfaces take precedence.
+
+`visual-gauntlet` is the **evidence-led visual QA companion** for user-requested visual artifacts. It checks actual output where tooling allows, including reference fidelity, responsive views, motion and interaction. It complements `visual-chat` (presentation), `video-watch` (frame extraction), and `dev-mode` (implementation and repository changes). It is **not** marked always-apply: text-only requests need no forced image generation, and WebUI cannot guarantee hidden tool interception.
 
 Shared behavior should live in one companion skill rather than being copied into every task skill. New skills should not duplicate visual presentation rules from `visual-chat`.
 
@@ -89,6 +92,7 @@ plan a new project
 spec this project
 dev this repo
 watch https://youtu.be/VIDEO_ID
+visual gauntlet inspect this design against my reference
 seo audit https://example.com
 ```
 

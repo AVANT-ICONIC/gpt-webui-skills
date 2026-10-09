@@ -1,6 +1,6 @@
 # Canonical shared geometry policy
 
-Version: geometry-policy/1. This source is vendored into a standalone WebUI adapter; its hash must agree with the manifest.
+Version: geometry-policy/1.
 
 ## L1 Symbol geometry
 
@@ -12,7 +12,7 @@ Generate semantic nested region trees with named axes, negative-space reports, a
 
 ## L3 Standalone auditing
 
-The auditor needs no Gauntlet. Exact source relationships are `declared`; post-hoc matches are `inferred`. Output actual fields, units, source/candidate SHA-256, positive/negative topology, hard-rule failures, honest UNVERIFIED or NOT_EVALUATED capabilities and reversible candidate comparisons. Reject loss of a counter or worsening hard residual. Never overwrite an approved mark or treat synthetic refinement as owner approval.
+The auditor is standalone. Exact source relationships are `declared`; post-hoc matches are `inferred`. Output actual fields, units, source/candidate SHA-256, positive/negative topology, hard-rule failures, honest UNVERIFIED or NOT_EVALUATED capabilities and reversible candidate comparisons. Reject loss of a counter or worsening hard residual. Never overwrite an approved mark or treat synthetic refinement as owner approval.
 
 ## L4 Responsive UI
 
@@ -24,4 +24,4 @@ Grammar rules have typed split/align/focal/safeZone/rhythm/vary relationships an
 
 ## Runtime / privacy
 
-Use offline Node builtins and optional free locally installed renderer. Capability probe first; do not claim inaccessible tests passed. Do not access confidential game art, private holdouts, credentials or paid APIs. The existing independent single-agent Gauntlet may be used separately but this skill does not modify or depend on it. WebUI without a real Node or renderer must provide truthful capability limitations and a precise local-agent handoff, never a fabricated run log.
+Use offline Node builtins and optional free locally installed renderer. Capability probe first; do not claim inaccessible tests passed. Do not access credentials or paid APIs. The `gauntlet-loop` skill may be used alongside this one, but this skill neither modifies nor depends on it. An environment without Node or a renderer must state its capability limits and hand off precise local steps, never a fabricated run log.

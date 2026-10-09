@@ -5,7 +5,7 @@ description: Plan and inspect geometric logos, nested compositions, UI proportio
 
 # Geometric Design · WebUI
 
-**EXPERIMENTAL ALPHA candidate; still draft/unmerged.** Supported technical workflow only. No independent blind recognition review or matched-agent creative-uplift proof (T3/T4 `NOT_EVALUATED`).
+**EXPERIMENTAL ALPHA technical preview.** Supported technical workflow only. No independent blind recognition review or matched-agent creative-uplift proof (T3/T4 `NOT_EVALUATED`).
 
 **Read [bundled canonical policy](references/geometry-policy.md) first.** This skill works with this folder alone. It never assumes the portable engine, a Node process, a browser or an image renderer is available in the ChatGPT session.
 
@@ -19,7 +19,7 @@ description: Plan and inspect geometric logos, nested compositions, UI proportio
 
 ## Capabilities and handoff
 
-Probe tools and permissions **actually available**: source bytes/file hashes, Node.js 22+, optional installed free Inkscape/browser, screenshot inspection and repo access. Only report what really executed. Without a runnable engine, present scope/constraints and a concrete **local-agent handoff**, never a fabricated CLI log or visual PASS:
+Probe tools and permissions **actually available**: source bytes/file hashes, Node.js 22+, optional installed free Inkscape/browser, screenshot inspection and repo access. Only report what really executed. Do not inspect sealed private holdouts, confidential project art, or credentials without explicit separate authorization. Without a runnable engine, present scope/constraints and a concrete **local-agent handoff**, never a fabricated CLI log or visual PASS:
 
 - Source file, revision/digest and relevant private-data boundaries.
 - Frozen layout/logo reference, expected geometry, supported and unsupported features, exact proposed versus owner-approved changes.

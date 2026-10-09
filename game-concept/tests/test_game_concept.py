@@ -81,6 +81,18 @@ class Snapshot(unittest.TestCase):
     def test_manifest_tamper_detected(self):
         (self.dst/v.MANIFEST).write_text("{}")
         self.assertTrue(v.verify(self.dst))
+    def test_unlisted_manifest_metadata_rejected(self):
+        doc = json.loads((self.dst/v.MANIFEST).read_text())
+        doc["unlisted_metadata"] = "not produced by the canonical generator"
+        (self.dst/v.MANIFEST).write_text(json.dumps(doc))
+        self.assertTrue(any("manifest" in error for error in v.verify(self.dst)))
+
+    def test_noncanonical_manifest_order_rejected(self):
+        doc = json.loads((self.dst/v.MANIFEST).read_text())
+        doc["files"].reverse()
+        (self.dst/v.MANIFEST).write_text(json.dumps(doc))
+        self.assertTrue(any("manifest" in error for error in v.verify(self.dst)))
+
     def test_wrong_pin_and_revision_drift_detected(self):
         self.assertTrue(any("requested source revision" in e for e in v.verify(self.dst, required_revision="f"*40)))
         doc=json.loads((self.dst/v.MANIFEST).read_text())

@@ -57,6 +57,6 @@ Keep implementation authorization separate: inspecting a visual does not authori
 - `PAUSED_RECOVERABLE`: good next step remains, but this turn is ending.
 - `BLOCKED_ENV`: supported safe routes exhausted for a required observation.
 - `BLOCKED_PERMISSION`: further work requires permission not already granted.
-- `PLATEAU_UNRESOLVED`: repeated changes did not improve a major issue; revise approach and hand off with a **non-PASS** verdict.
+- `NEEDS_WORK` (plateau noted in the evidence): repeated changes did not improve a major issue; revise the approach and hand off with a **non-PASS** verdict. Keep the five S2 verdict codes consistent with the main skill and VG-08.
 
 Do not turn "three passes" into an arbitrary exit rule; stopping before completion must be transparent.

@@ -1,0 +1,33 @@
+name: Geometric Design WebUI rule synchronization
+on:
+  pull_request:
+    paths:
+      - 'geometric-design/**'
+      - '.github/workflows/geometric-design.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'geometric-design/**'
+      - '.github/workflows/geometric-design.yml'
+permissions:
+  contents: read
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Local snapshot and tamper regressions
+        run: node --test geometric-design/tests/*.test.mjs
+      - name: Verify immutable canonical portable source over GitHub
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha=$(node -p "JSON.parse(require('fs').readFileSync('geometric-design/sync-manifest.json')).canonicalCommit")
+          mkdir -p /tmp/geometry-canonical
+          curl --fail --location --retry 3 --silent --show-error \
+            "https://raw.githubusercontent.com/AVANT-ICONIC/skills/${sha}/geometric-design/references/geometry-policy.md" \
+            -o /tmp/geometry-canonical/geometry-policy.md
+          node geometric-design/verify-sync.mjs /tmp/geometry-canonical/geometry-policy.md

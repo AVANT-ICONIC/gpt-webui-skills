@@ -26,7 +26,7 @@ define outcome + success criteria
   ↓
 stress-test the reconstructed intent
   ↓
-handoff to Plan Mode or Spec Mode
+handoff to Plan Mode, OpenSpec Workflow, or Spec Mode
 ```
 
 Do not begin implementation in Intent Mode.
@@ -171,9 +171,15 @@ Intent Mode hands over:
 
 Plan Mode must not restart intent discovery unless new evidence invalidates the brief.
 
+### → OpenSpec Workflow
+
+When the target is a concrete non-trivial code change in a project that already uses OpenSpec, hand the Intent Brief to `openspec-workflow`. Let that workflow choose native OpenSpec Explore vs Propose from the remaining change-specific uncertainty.
+
+Do not force a separate Plan Mode and Spec Mode pass merely because those modes exist.
+
 ### → Spec Mode
 
-Skip Plan Mode when the intended behavior, scope, constraints, and important decisions are already settled.
+Use Spec Mode directly when the intended behavior, scope, constraints, and important decisions are already settled **and** the target project does not have a native OpenSpec change workflow that should own the change.
 
 Intent Mode hands the complete Intent Brief directly to Spec Mode.
 
@@ -193,7 +199,11 @@ Plan Mode answers:
 
 > Which decisions must we make to accomplish it?
 
-Spec Mode answers:
+OpenSpec Workflow answers, for OpenSpec projects:
+
+> Which native change step owns this now, and what must remain true through implementation?
+
+Spec Mode answers, for standalone specification work:
 
 > What exactly must remain true when we build it?
 

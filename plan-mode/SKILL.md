@@ -7,6 +7,16 @@ description: Interactive ChatGPT WebUI planning that turns a fuzzy idea, project
 
 Plan before building.
 
+## Boundary with OpenSpec
+
+Plan Mode is not a mandatory interview before every OpenSpec change.
+
+When the target repository already uses OpenSpec and the user is discussing one concrete non-trivial code change, load `openspec-workflow` and let native OpenSpec Explore handle unresolved change-specific behavior, scope, compatibility, acceptance, and implementation tradeoffs.
+
+Use Plan Mode when decisions sit **above** one change: product direction, project architecture, multi-change sequencing, cross-project workflow, or other choices whose result will shape several OpenSpec changes.
+
+Do not finish a full parallel plan and only then copy it into OpenSpec. OpenSpec should enter as soon as the work becomes a concrete change.
+
 Your job is to turn uncertainty into explicit decisions with the human. Do not implement the project and do not rush toward a specification before the important branches are settled.
 
 
@@ -132,9 +142,9 @@ Plan Mode is complete when:
 - assumptions are visible;
 - scope and non-goals are clear;
 - no important decision is being silently invented by the model;
-- Spec Mode can proceed without re-interviewing the user.
+- the next concrete stage can proceed without re-interviewing the user: OpenSpec Workflow for an OpenSpec code change, otherwise Spec Mode.
 
-End with a concise **Plan Handoff** containing only the durable conclusions Spec Mode needs.
+End with a concise **Plan Handoff** containing only the durable conclusions the next stage needs. For an OpenSpec project, route concrete change work into `openspec-workflow`; otherwise route to Spec Mode.
 
 Do not generate implementation tasks in detail here unless they are necessary to resolve a planning decision.
 

@@ -1,18 +1,28 @@
 ---
 name: spec-mode
-description: Autonomous ChatGPT WebUI specification work that converts settled planning decisions into a coherent, implementation-ready spec, preferably using the target project's existing OpenSpec schema.
+description: ChatGPT WebUI specification work for projects without a native change workflow, plus a compatibility entry point that delegates OpenSpec projects to openspec-workflow.
 ---
 
 # Spec Mode
 
-Turn settled decisions into a buildable specification.
+Turn settled decisions into a buildable specification when no native change workflow already owns the job.
+
+## OpenSpec projects delegate early
+
+If the target project already uses OpenSpec and this is a non-trivial code change, load `openspec-workflow` and delegate immediately.
+
+Do **not** require all product and architecture decisions to be settled before involving OpenSpec. Native OpenSpec Explore exists specifically to inspect the codebase, weigh options, and clarify change-specific uncertainty before Propose.
+
+In an OpenSpec project, Spec Mode is therefore a compatibility entry point, not a parallel specification system.
 
 Spec Mode is not another planning interview. The default behavior is autonomous: inspect the project, resolve factual gaps, write or refine the specification, verify coherence, and continue until the spec is ready for implementation.
 
 
 ## Entry condition
 
-Start only when the important product and architecture decisions are already settled.
+For standalone specification work, start when the important product and architecture decisions are already settled.
+
+For OpenSpec projects, use the delegation rule above instead of this entry condition.
 
 Recover the latest Plan Mode handoff and the target project's current state before doing new work.
 
@@ -22,18 +32,9 @@ Minor factual gaps are not planning questions. Retrieve the facts yourself.
 
 ## Prefer the project's real specification system
 
-If the target project already uses OpenSpec:
+If the target project already uses OpenSpec, this mode delegates to `openspec-workflow`. That workflow inspects the project's real OpenSpec root, schema, existing changes, generated native skills, and available CLI behavior before deciding Explore, Propose, Update, or continuation.
 
-1. inspect its existing `openspec/` structure and configuration;
-2. follow the project's active schema and artifact graph;
-3. preserve existing naming and conventions;
-4. update artifacts coherently in whichever direction a change requires.
-
-Do not assume every OpenSpec project uses literal `proposal.md`, `specs/`, `design.md`, and `tasks.md` files.
-
-Current OpenSpec is schema-driven.
-
-If OpenSpec CLI access is available, prefer its status/configuration output over guessing paths.
+Do not recreate OpenSpec semantics inside Spec Mode.
 
 ## Default when no schema exists
 
@@ -192,6 +193,6 @@ When ready, report compactly:
 - canonical artifact locations;
 - important deferred items, if any;
 - evidence that the spec is coherent;
-- that it is ready for Dev Mode.
+- the correct next stage: Dev Mode for standalone specs, or the OpenSpec workflow's native implementation step for OpenSpec changes.
 
 Do not start implementation merely because the specification is complete.

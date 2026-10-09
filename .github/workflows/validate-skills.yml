@@ -69,3 +69,17 @@ jobs:
               sys.exit(1)
 
           print(f"Validated {len(skill_dirs)} skill folders.")
+
+      - name: Test Game Concept and pinned package integrity
+        run: |
+          python -m unittest discover -s game-concept/tests -p 'test_*.py' -v
+          python game-concept/scripts/verify_package.py
+      - name: Checkout pinned Game Studio canonical source
+        uses: actions/checkout@v4
+        with:
+          repository: AVANT-ICONIC/skills
+          ref: 76f4aaf2540ad5620fd6a0e7fd252646e12901a5
+          path: .s3-source
+          persist-credentials: false
+      - name: Verify exact source-to-WebUI snapshot parity
+        run: python game-concept/scripts/verify_package.py --source-dir .s3-source/game-studio/references/concept-core

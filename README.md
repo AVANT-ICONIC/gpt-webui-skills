@@ -50,7 +50,7 @@ companion skill  = shared behavior that applies across tasks
 
 `visual-chat` is the first companion skill. It owns user-facing chat presentation for substantial work and is marked `always-apply: true`.
 
-Visual Chat offers a small **Continue** button only when assigned work remains and another turn can usefully advance it. It submits exactly `continue`, without an expanded prompt or new scope. Do not stop early just to show a button, or show one for completed tasks, casual chat, or unchanged blockers. Exact-output constraints and unsupported interfaces take precedence.
+Visual Chat offers a small conversational button when the user's ongoing goal has a meaningful next step. Briefly explain the action above it; the button submits **only its visible action word**, e.g. **Continue** → `continue`, not a reconstructed prompt. Do as much work as practical before offering a button, and omit it when nothing useful remains. Exact-output constraints and unsupported interfaces take precedence.
 
 `visual-gauntlet` is the **evidence-led visual QA companion** for user-requested visual artifacts. It checks actual output where tooling allows, including reference fidelity, responsive views, motion and interaction. It complements `visual-chat` (presentation), `video-watch` (frame extraction), and `dev-mode` (implementation and repository changes). It is **not** marked always-apply: text-only requests need no forced image generation, and WebUI cannot guarantee hidden tool interception.
 

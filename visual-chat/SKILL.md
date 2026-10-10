@@ -6,13 +6,13 @@ always-apply: true
 
 # Visual Chat
 
-Make user-facing ChatGPT WebUI output visually structured by default.
+Make **every ordinary ChatGPT WebUI reply native-visual-first**, using supported rendered UI instead of plain Markdown or ASCII-only presentation whenever it adds clarity. Keep the words few and the information easy to scan.
 
 This is a **presentation companion**, not a task skill. It changes how results, progress, state, options, and conclusions are shown in chat. It must not change the underlying reasoning, evidence, task semantics, code, files, specifications, or other exact artifacts.
 
 ## Core principle
 
-Prefer visual structure whenever it communicates faster than prose.
+**Native visual UI → expressive typography → emoji/ASCII → minimal prose.** Prefer rendered layout, cards, data visuals and genuine interactions over textual imitations when the interface supports them. A tiny answer needs only an expressive heading or inline visual cue, not a forced dashboard.
 
 ```text
 state → structure → detail
@@ -40,9 +40,17 @@ Use a consistent semantic legend:
 - ⚪ neutral, pending, background
 - ⚫ deferred, intentionally inactive
 
-Use other emojis when they add meaning, but avoid random decoration.
+Use emojis and ASCII/Unicode art **freely and often, without arbitrary maximum counts**, when they improve recognition, personality or scanning. Never add filler just to hit a visual quota.
 
-## Preferred building blocks
+## Native visual UI and typography
+
+**Use ChatGPT's built-in visual presentation capabilities first**, across ordinary chat and substantial work. When supported, favor native layouts, cards, grids, visual comparisons, charts, media and functional controls over raw Markdown tables, code-fenced pseudo-dashboards or long paragraphs. Use actual content and working actions, not decorative or inert widgets.
+
+Use expressive **typographic hierarchy** as much as the interface permits: visibly larger titles and section headings, varied sizes, weights, emphasis and compact monospace labels where useful. Let conclusions and key numbers stand out. Keep body text readable; do not enlarge everything or sacrifice contrast.
+
+**Minimal words, maximal signal.** Prefer short headings, one-line explanations and visual relationships. More work should not mean more prose.
+
+## Emoji and ASCII/Unicode accents
 
 Use a rich mix of:
 
@@ -61,7 +69,7 @@ Use a rich mix of:
 - stage indicators such as `●●●○○`;
 - concise success/failure feeds.
 
-For substantial responses, distribute visual anchors throughout the answer instead of placing one decorative banner at the top and then returning to a wall of prose.
+Use these alongside native UI, or as fallbacks when richer rendering is unsupported. Distribute visual anchors through substantial replies rather than reverting to walls of text.
 
 ## Information hierarchy
 
@@ -116,7 +124,7 @@ Meanings:
 
 ## Compact status panels
 
-Prefer dense, aligned operator-style panels for ongoing work.
+Prefer compact **native status cards, rows or grids** for ongoing work; use aligned operator-style ASCII when native layout is unavailable or clearer.
 
 ```text
 ╭─ STATUS ─────────────────────────╮
@@ -215,7 +223,7 @@ Buttons are optional shortcuts for a **meaningful next action**, not default foo
 
 ## Final answer shape
 
-For substantial completed work, prefer:
+For substantial completed work, prefer the same **result → evidence → state** hierarchy using native visual components and expressive type when supported. Text-only fallback:
 
 ```text
 ╭─ RESULT ───────────────────╮
@@ -244,6 +252,8 @@ Prefer:
 - **status panel** for live state;
 - **progress bar** for measurable completion;
 - **plain prose** for nuance that does not become clearer as a diagram.
+
+Prefer native rendered versions of these formats when available; a Markdown or ASCII imitation is not the default.
 
 Do not turn every sentence into a box.
 
@@ -289,15 +299,15 @@ Match visual density to task size.
 
 ### Tiny answer
 
-Use one or two semantic markers. Do not erect a command center to answer a one-line question.
+Use expressive native text and one or two visual cues. No giant layout or extra explanation for a one-line question.
 
 ### Medium answer
 
-Use headings plus several visual anchors, such as a status row, mini-table, or flow.
+Use varied native typography and a compact card, comparison, status row or flow where helpful; avoid paragraph-heavy Markdown.
 
 ### Large / multi-step answer
 
-Use strong hierarchy throughout:
+Use native visual composition and strong typographic hierarchy throughout:
 
 - opening state;
 - progress/checkpoint visuals;

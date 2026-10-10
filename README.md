@@ -48,7 +48,7 @@ task skill       = what to do
 companion skill  = shared behavior that applies across tasks
 ```
 
-`visual-chat` is the first companion skill. It owns user-facing chat presentation for substantial work and is marked `always-apply: true`.
+`visual-chat` is the always-apply presentation companion for ordinary chat and substantial work. It prioritizes ChatGPT's native visual UI, expressive typography, frequent useful emoji/ASCII and minimal prose, while preserving exact-output boundaries.
 
 Visual Chat offers a small conversational button when the user's ongoing goal has a meaningful next step. Briefly explain the action above it; the button submits **only its visible action word**, e.g. **Continue** → `continue`, not a reconstructed prompt. Do as much work as practical before offering a button, and omit it when nothing useful remains. Exact-output constraints and unsupported interfaces take precedence.
 

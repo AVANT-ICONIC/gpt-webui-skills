@@ -202,27 +202,16 @@ Example:
 
 Updates should communicate new state, not repeat the same dashboard every turn.
 
-## Persistent interactive Continue control
+## Continue button (unfinished work only)
 
-The user wants a **functional Continue button in ordinary ChatGPT WebUI replies by default**, including after major completed phases. Keep the button small and unobtrusive, normally at the end of the response. This is a navigation/conversation affordance, **not** authorization to autonomously run the next project phase.
+Continue is an optional aid for **unfinished assigned work**, not a default footer.
 
-When the response interface supports actionable buttons:
-
-1. Render a native interactive control with the visible label **Continue**. Use a genuine supported action that **submits a new message in the existing conversation**, never a decorative or unbound control.
-2. The submitted continuation must preserve the current task and phase. For an unfinished task, resume from the latest durable checkpoint and execute the exact next authorized step without rediscovering everything. For a completed phase with a defined next phase, the action should ask to proceed to that *specific* next phase; do not silently bypass any required approval. For a general discussion without a project, a simple "Continue" user message is adequate.
-3. If a meaningful additional choice is necessary before proceeding, display compact functional choices and an optional free-text alternative, then allow submission of the chosen/typed answer. Do not force a bulky form just to display Continue.
-4. **Do not claim clicking guarantees success.** It is a user-triggered follow-up message, not a background job, scheduler, permission bypass, guaranteed model continuation, or hidden automatic feature.
-5. When interactive UI controls are unsupported or the output channel requires exact-only content (code-only, JSON-only, user-specified literal output), do not fabricate clickable controls, pollute the artifact, or break the format. Otherwise provide a short, plain-text continuation instruction as fallback when useful.
-
-**Default expectation:** Prefer the real Continue button on every normal WebUI conversational answer, including final answers, without waiting for the user to request it again. Do not add fake buttons inside the files, emails, prompts, data or other user deliverables. This rule belongs to the presentation companion, not the domain skill or a new top-level skill.
-
-### Acceptance examples
-
-- **Unfinished repository task:** a Continue click submits a follow-up that resumes the existing authorized task at its stored checkpoint.
-- **Spec ready, implementation requires approval:** Continue submits an explicit request to begin the named next implementation phase; it does not itself secretly modify the repository in advance.
-- **Planning choice pending:** a user can choose an option or type their own override and submit; controls are functional.
-- **No supported interactive controls:** no inert faux button is displayed; a conversational continuation instruction is used only where helpful.
-- **Exact JSON-only response:** the requested JSON remains valid; no extraneous button text appears in the payload.
+- Do as much useful work as practical **in the current turn**. Never split executable work into artificial turns just to offer Continue.
+- Show one small native **Continue** button **only when assigned work remains, another turn can meaningfully advance it, and the interface supports a working action**.
+- Clicking the button must submit **exactly `continue`** (lowercase, one word). No expanded prompt, reconstructed instructions, extra context, or change of scope.
+- On `continue`, resume the existing task from its latest useful context/checkpoint rather than restarting discovery or repeating completed work.
+- Omit the button for casual chat, completed tasks or phases without unfinished assigned work, speculative extra improvements, and unchanged blockers with no productive next action. If an actual user choice is required, ask that question rather than offering Continue.
+- Do not add controls to exact-output responses or user deliverables, and never render a fake button when interactive controls are unavailable.
 
 ## Final answer shape
 

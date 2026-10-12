@@ -18,6 +18,10 @@ Dev Mode owns execution; OpenSpec owns the current change contract.
 Dev Mode is execution-oriented. Do not reopen settled product decisions merely because another implementation route is possible.
 
 
+## Architecture Guard companion
+
+For substantive implementation, refactors, design-system or UI work, load the portable [Architecture Guard](https://github.com/AVANT-ICONIC/skills/blob/main/architecture-guard/SKILL.md) skill **when available** before editing. Apply its canonical-owner search, reuse/keep-local decisions, token/component policy and verification receipt alongside the agreed task; the project’s existing architecture rules still take precedence. Do not duplicate the companion text here, demand it for trivial edits, or pretend advisory instructions are enforced without real lint/CI/browser checks. If unavailable, proceed with the task and report the missing companion rather than blocking.
+
 ## Start from durable truth
 
 Before changing code:

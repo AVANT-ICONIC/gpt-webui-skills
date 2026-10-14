@@ -317,6 +317,16 @@ Use native visual composition and strong typographic hierarchy throughout:
 
 The goal is **scanability**, not maximum ornament count.
 
+## Image reliability gate
+
+When visuals are part of the answer, do not treat an asynchronous image search/query placeholder as a successfully delivered image. An image being requested does not prove that it can be displayed.
+
+- For important imagery, prefer actually generated files, usable media returned by a tool, or confirmed image assets over unverified image-query boxes.
+- Verify generated artifact paths exist before linking them; use exact returned media references and preserve their original URLs. Do not fabricate links, thumbnails, or successful renders.
+- If visual lookups or images fail, repair with verified local/generated assets or robust text/inline-vector alternatives, rather than repeating more unverified lookup placeholders.
+- Keep meaningful visible text labels and descriptions, so a broken external visual never empties the answer.
+- For game art/concept visuals intended to become 3D assets, keep shapes and production detail within the stated Blender/procedural modeling budget and art style. Distinguish concept illustration from an actual editable game mesh.
+
 ## Accessibility and robustness
 
 Do not rely on color-circle meaning alone. Pair color with words or symbols.

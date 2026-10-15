@@ -35,7 +35,7 @@ LOCAL HANDOFF remains available when execution must continue elsewhere.
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 | [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
 | [Game Concept](./game-concept/SKILL.md) | Mechanically distinct playable ideas, concrete first-minute controls and read-only game rescue | Creative reasoning |
-| [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion, including a functional Continue button when interactive controls are supported | Always apply |
+| [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion with Skill Trace and a functional Continue button when supported | Always apply |
 | [Visual Gauntlet](./visual-gauntlet/SKILL.md) | Inspect actual rendered visual output, reference fidelity, motion and real interactions; recover honestly when tools are missing | Visual QA companion |
 
 
@@ -59,6 +59,21 @@ Shared behavior should live in one companion skill rather than being copied into
 A task skill must remain semantically complete without relying on visual formatting. Companion skills may change presentation, workflow hygiene, or other cross-cutting behavior, but must not silently change the task's domain rules.
 
 
+### Skill Trace
+
+The always-apply `visual-chat` companion now adds a tiny **per-response skill footer**.
+
+```text
+🧩 Skills: ✓ visual-chat (presentation) · ✓ seo-aiseo (research) · ◐ futurequake
+🧩 Skills: ✓ visual-chat · ⚠ video-watch (expected; not loaded)
+```
+
+- `✓ applied` means read and materially followed; `◐ inspected` means read but not used; `○ considered` means evaluated but not loaded or needed.
+- `⚠ expected, not loaded` exposes relevant skipped/unavailable skills.
+- Complex tasks may annotate phases; skill names can link to known `SKILL.md` pages or verified commit permalinks.
+- The trace is an **honest model self-report, not host-generated telemetry**. A source link does not prove execution.
+- Omit the footer inside exact-output deliverables and sensitive/crisis answers. Keep shared trace rules in `visual-chat` only.
+
 ## Install
 
 ### ChatGPT Web / Desktop
@@ -75,6 +90,8 @@ Replace that whole workflow block with:
 
 ```text
 Before substantial or specialized work, check https://github.com/AVANT-ICONIC/gpt-webui-skills for relevant skills. Load every applicable companion skill marked `always-apply: true`, then load the matching task skill(s). Treat that repository as canonical and discover skills from it rather than relying on a hard-coded list.
+
+At the end of ordinary chat replies, follow visual-chat's Skill Trace to disclose skills actually applied versus merely inspected, and meaningful expected-but-skipped skills. Use phase labels or source links when useful; never claim an unread skill was applied. Omit the trace from exact-output-only artifacts and sensitive/crisis replies.
 
 If I say "continue", resume the active skill set from its latest durable checkpoint without restarting discovery. In a fresh chat, recover the matching skills and durable project state first.
 
@@ -102,7 +119,7 @@ visual gauntlet inspect this design against my reference
 seo audit https://example.com
 ```
 
-ChatGPT should load the matching `SKILL.md` before substantial work.
+ChatGPT should load the matching `SKILL.md` before substantial work, then emit an honest `🧩 Skills:` footer for ordinary replies. Check both successful usage and skipped-but-relevant cases.
 
 ## Usage
 

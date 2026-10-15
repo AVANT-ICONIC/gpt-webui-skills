@@ -221,6 +221,53 @@ Buttons are optional shortcuts for a **meaningful next action**, not default foo
 - Omit the button for casual chat, exhausted goals, speculative improvements or unchanged blockers with no productive next action. Ask an actual question if a choice is genuinely needed.
 - Do not add buttons to exact-output responses or user deliverables; never show a fake control if native actions are unsupported.
 
+
+## Skill Trace (per-response, self-reported)
+
+Finish **every ordinary chat response** with a tiny low-emphasis Skill Trace. Its job is to reveal which skills genuinely contributed, which were only inspected, and which relevant skills were skipped. This is **self-reporting**, not verified tool telemetry.
+
+### Record usage, not intention
+
+During the task, track only evidence available in the active conversation: complete skill instructions actually loaded/read, specific rules or workflows materially applied, applicable candidates merely considered, and expected skills not loaded. Do not assume skill context from a previous chat persists into a new one.
+
+| Status | Meaning | Evidence requirement |
+| --- | --- | --- |
+| `✓ applied` | Instructions were loaded **and** a material rule or workflow was followed | Read content and specific contribution; merely mentioning a skill does not count |
+| `◐ inspected` | Instructions were read but did not materially affect this answer | Actual complete `SKILL.md` inspection, not a listing or snippet |
+| `○ considered` | A candidate was evaluated but not loaded or needed | Grounded applicability decision, not a claim of execution |
+| `⚠ expected, not loaded` | An applicable task skill or required companion was skipped or inaccessible | Clear applicability plus failed/missing loading |
+
+Use `✓ applied` only with both loading and actual application. If a skill was read earlier **in this conversation** and remains in active context, that may count as loaded; don't fetch again solely to inflate the footer. If the evidence is unclear, downgrade the claim. Never imply a repository URL, skill-name mention, file listing, or a tool-call plan proves a skill ran.
+
+### Compact footer
+
+Use **one unobtrusive line after the answer**, ideally native small/muted text, otherwise plain Markdown.
+
+`🧩 Skills: ✓ [visual-chat](https://github.com/AVANT-ICONIC/gpt-webui-skills/blob/main/visual-chat/SKILL.md) · ✓ game-concept · ◐ futurequake`
+
+- Applied first, inspected second. Show `○ considered` only for a materially relevant rejected candidate, not every possible skill in the catalog.
+- **Explicit missing-skill warning** whenever a clearly applicable skill was expected but not loaded: `⚠ video-watch (expected; unavailable)` or `⚠ visual-gauntlet (relevant; skipped)`. Do not silently hide a missed activation.
+- When nothing was actually applied: `🧩 Skills: none applied`, plus any warranted missing-skill warning. Never invent a positive state to make the footer look nicer.
+- A trace is metadata: avoid cards, colorful badges, giant logs, and more than one line where practical.
+- Put the footer **outside** user-requested artifacts (source code, JSON, shell commands, specs, messages, prompts, etc.). Omit it entirely for exact-output-only instructions, or when it would be intrusive for sensitive/crisis situations.
+
+### Phase attribution for complex work
+
+If a multi-stage task benefits from knowing which skill owned each phase, annotate the same footer, not a second report:
+
+`🧩 Skills: ✓ seo-aiseo (research) · ✓ dev-mode (implementation) · ✓ visual-gauntlet (QA) · ✓ visual-chat (presentation)`
+
+Only tag a phase when a rule from that skill really influenced that phase. A tool invocation or stage heading alone is not skill usage.
+
+### Optional evidence links and honesty boundary
+
+- Link displayed skill names to a **known real** `SKILL.md` URL when convenient; a validated canonical `main` link is sufficient. Prefer a commit permalink if and only if the exact SHA and path were observed. Never invent URLs, SHAs, or logs.
+- A source link confirms where the instructions live, **not** that they were read or followed. Reading them supports `◐ inspected`; `✓ applied` additionally requires actually following a relevant procedure.
+- Failed tool operations, skipped reads and incomplete checks remain failures, regardless of what the footer looks like.
+- A self-reported footer cannot independently observe hidden tool execution, audit every selection, or guarantee that missed skills are detected. True independent provenance needs a **host-generated tool/skill event ledger**. Never imply this markdown policy provides one.
+- Keep this policy centralized in `visual-chat`. Other task skills should not copy it.
+
+
 ## Final answer shape
 
 For substantial completed work, prefer the same **result → evidence → state** hierarchy using native visual components and expressive type when supported. Text-only fallback:
@@ -346,6 +393,7 @@ This skill does not:
 - replace task-specific output formats;
 - invent progress percentages;
 - add fake confidence indicators;
+- present a self-reported Skill Trace as independently verified tool telemetry;
 - make a simple answer longer merely to satisfy a visual quota.
 
 ## Composition rule

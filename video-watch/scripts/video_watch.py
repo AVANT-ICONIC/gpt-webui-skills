@@ -667,7 +667,8 @@ def main() -> int:
         )
         result = {
             "status": "ready",
-            "visual_verified": True,
+            "frames_extracted": True,
+            "visual_verified": False,  # The consuming model must inspect the sheets first.
             "workdir": str(work),
             "manifest": str(manifest_path),
             "manifest_md": str(work / "manifest.md"),

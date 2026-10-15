@@ -497,9 +497,57 @@ def write_manifest(work: Path, source: str, video: Path, info: dict, meta: dict,
     return path
 
 
+def write_transcript_only(work: Path, source: str | None, supplied: str, reason: str) -> dict:
+    """Emit truthful, machine-readable output without implying frames were inspected."""
+    work.mkdir(parents=True, exist_ok=True)
+    transcript = work / "transcript.txt"
+    transcript.write_text(supplied, encoding="utf-8")
+    line_count = sum(bool(line.strip()) for line in supplied.splitlines())
+    manifest = {
+        "source": source,
+        "workdir": str(work),
+        "analysis_mode": "transcript_only",
+        "visual_verified": False,
+        "video_path": None,
+        "frames": [],
+        "contact_sheets": [],
+        "transcript_path": str(transcript),
+        "transcript_lines": line_count,
+        "reason": reason,
+    }
+    manifest_path = work / "manifest.json"
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    md_path = work / "manifest.md"
+    md_path.write_text(
+        "# Video Watch Manifest (transcript only)\n\n"
+        f"- Source: {source or 'supplied transcript'}\n"
+        "- Visual evidence: NONE; do not claim to have watched frames\n"
+        f"- Reason: {reason}\n"
+        f"- Transcript: {transcript}\n"
+        f"- Nonblank transcript lines: {line_count}\n",
+        encoding="utf-8",
+    )
+    return {
+        "status": "transcript_only",
+        "visual_verified": False,
+        "reason": reason,
+        "workdir": str(work),
+        "manifest": str(manifest_path),
+        "manifest_md": str(md_path),
+        "contact_sheets": [],
+        "frame_count": 0,
+        "transcript": str(transcript),
+        "transcript_lines": line_count,
+    }
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Prepare a video for ChatGPT WebUI frame + transcript analysis")
-    ap.add_argument("source", help="Local video path or yt-dlp supported URL")
+    ap.add_argument("source", nargs="?", help="Local video path or yt-dlp supported URL")
+    ap.add_argument("--transcript-file", default=None,
+                    help="Optional UTF-8 supplied transcript, works without a video or ffmpeg")
     ap.add_argument("--out-dir", default=None, help="Output directory. Default: /mnt/data/video-watch/<hash>")
     ap.add_argument("--yt-dlp", default=None, help="Path to yt-dlp binary for URL sources")
     ap.add_argument("--sub-langs", default="en.*,de.*,.*orig.*", help="yt-dlp subtitle language expression")
@@ -510,11 +558,37 @@ def main() -> int:
     ap.add_argument("--end", default=None, help="Focus end: SS, MM:SS, or HH:MM:SS")
     args = ap.parse_args()
 
-    if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
-        print(json.dumps({"status": "needs_ffmpeg", "message": "ffmpeg and ffprobe are required"}))
-        return 2
+    if args.source is None and args.transcript_file is None:
+        ap.error("provide a video source and/or --transcript-file")
 
-    work = Path(args.out_dir).expanduser().resolve() if args.out_dir else Path("/mnt/data/video-watch") / slug_hash(args.source)
+    seed = args.source or str(Path(args.transcript_file).expanduser().resolve())
+    work = (Path(args.out_dir).expanduser().resolve() if args.out_dir
+            else Path("/mnt/data/video-watch") / slug_hash(seed))
+    supplied = None
+    if args.transcript_file:
+        supplied_path = Path(args.transcript_file).expanduser().resolve()
+        try:
+            supplied = supplied_path.read_text(encoding="utf-8-sig")
+            if not supplied.strip():
+                raise ValueError("supplied transcript is empty")
+        except (OSError, UnicodeError, ValueError) as exc:
+            print(json.dumps({"status": "error", "message": f"invalid --transcript-file: {exc}"}))
+            return 2
+
+    def fallback(reason: str) -> int:
+        if supplied is None:
+            print(json.dumps({"status": "error", "message": reason, "workdir": str(work)}))
+            return 1
+        result = write_transcript_only(work, args.source, supplied, reason)
+        print(json.dumps(result, ensure_ascii=False))
+        return 0
+
+    # The transcript lane must remain usable even without multimedia dependencies.
+    if args.source is None:
+        return fallback("No video source supplied; analyzed supplied transcript only")
+    if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
+        return fallback("ffmpeg and ffprobe are required for visual extraction")
+
     work.mkdir(parents=True, exist_ok=True)
     yt_dlp = locate_yt_dlp(args.yt_dlp)
 
@@ -577,15 +651,23 @@ def main() -> int:
             frames, work / "contact_sheets",
             thumb_w=args.sheet_thumb_width,
         )
-        transcript_segments, transcript_path = write_transcript(
-            caption, work / "transcript.txt", start, end
-        )
+        if supplied is not None:
+            # Explicit user evidence takes precedence over downloaded captions.
+            transcript_file = work / "transcript.txt"
+            transcript_file.write_text(supplied, encoding="utf-8")
+            transcript_path = str(transcript_file.resolve())
+            transcript_segments = sum(bool(line.strip()) for line in supplied.splitlines())
+        else:
+            transcript_segments, transcript_path = write_transcript(
+                caption, work / "transcript.txt", start, end
+            )
         manifest_path = write_manifest(
             work, args.source, video, info, meta, frames, sheets,
             transcript_path, transcript_segments, focus,
         )
         result = {
             "status": "ready",
+            "visual_verified": True,
             "workdir": str(work),
             "manifest": str(manifest_path),
             "manifest_md": str(work / "manifest.md"),
@@ -600,12 +682,7 @@ def main() -> int:
         print(json.dumps(result, ensure_ascii=False))
         return 0
     except Exception as exc:
-        print(json.dumps({
-            "status": "error",
-            "message": str(exc),
-            "workdir": str(work),
-        }, ensure_ascii=False))
-        return 1
+        return fallback(str(exc))
 
 
 if __name__ == "__main__":

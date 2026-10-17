@@ -39,6 +39,10 @@ For **REFINE_EXISTING**, follow the user changes without losing original constra
 
 For **RESCUE**, diagnose the earliest repeated action that offers no meaningful alternative, not just missing cosmetic features. Inspect gameplay/code/assets **only when accessible and authorized**, and label exactly what was observed. When description-only, say so. Offer three equally complete loop reconstructions with clearly different core agency, physical inputs, the first minute, short/long loops, stakes, alternative strategies, existing asset/code reuse *when verified*, engineering change surface and cheapest falsifying experiment. Preserve useful existing work and private identity. No automatic implementation.
 
+## Visual reference handoff
+
+Concept-only discussion does not automatically authorize image generation. When the user requests a visual prototype or commits a visually led game concept to specification, compose with `visual-prototype`: prioritize **one integrated gameplay/product board**, inspect it, and stop further variants immediately when the owner approves. Preserve the exact approved image for the native GDD/spec and distinguish aesthetic props from authorized mechanics, progression and monetization.
+
 ## Adaptive research, verified UI, honest evidence
 
 Form independent mechanic hypotheses **before** searching existing games. For substantial genre/competitive claims, use available current primary and player/community sources; cite externally sourced facts and compare what players repeatedly *do*, not matching art direction. For tiny prompts don't bury the user in research. If no tools, finish with labeled assumptions and no invented sources or market statistics. Reader enthusiasm, coherence, a static screenshot and self-review are not observed player fun.

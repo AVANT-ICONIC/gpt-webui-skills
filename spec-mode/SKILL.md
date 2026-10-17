@@ -95,6 +95,10 @@ If new evidence changes the implementation route without changing intent, update
 
 If new evidence changes the intended behavior, scope, or user-visible contract, stop that branch and request a planning decision instead of silently rewriting intent.
 
+## Visual anchor requirement (conditional)
+
+For visually led apps, games, and interfaces, load `visual-prototype`. Use the approved cohesive concept board, user reference, or current design source of truth as the visual anchor **before** finalizing the buildable design. If visual exploration must follow an initial exploratory spec draft, incorporate the accepted reference before implementation begins. Keep the exact asset/reference plus visual contract and visual acceptance checks in the canonical project specification. Do not treat extra unapproved images, invented image features, or a text-only prompt as replacements. Stop generating when the first strong visual is accepted. Nonvisual changes bypass this requirement; do not create artwork without a user-established image task.
+
 ## Definition of ready
 
 The specification is implementation-ready when:

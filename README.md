@@ -11,6 +11,9 @@ INTENT MODE, only when needed
   ↓
 PLAN MODE, for project-level decisions
   ↓
+VISUAL PROTOTYPE GATE, for visually led projects only:
+one integrated reference → approve and freeze → bind to spec
+  ↓
 concrete non-trivial code change
   ↓
 OPENSPEC WORKFLOW
@@ -35,9 +38,14 @@ LOCAL HANDOFF remains available when execution must continue elsewhere.
 | [Video Watch](./video-watch/SKILL.md) | Actually inspect video frames + captions in WebUI | Automatic, frame-aware |
 | [SEO + AI SEO](./seo-aiseo/SKILL.md) | Audit and optimize sites for classic search + AI citations/mentions | Research-led, evidence-tiered |
 | [Game Concept](./game-concept/SKILL.md) | Mechanically distinct playable ideas, concrete first-minute controls and read-only game rescue | Creative reasoning |
+| [Visual Prototype](./visual-prototype/SKILL.md) | One-shot-first approved visual anchor around specification for visually led products | Conditional pre-spec/early-spec gate |
 | [Visual Chat](./visual-chat/SKILL.md) | Shared presentation companion with Skill Trace and a functional Continue button when supported | Always apply |
 | [Visual Gauntlet](./visual-gauntlet/SKILL.md) | Inspect actual rendered visual output, reference fidelity, motion and real interactions; recover honestly when tools are missing | Visual QA companion |
 
+
+## Visual prototype gate (conditional)
+
+For visually led apps, games and interfaces, load [Visual Prototype](./visual-prototype/SKILL.md) around the spec boundary: one cohesive concept board or selected reference, inspected and explicitly approved, then recorded in the project's native spec/design source of truth **before implementation**. If mechanics or screen layout first require a rough draft, do the visual review immediately after that draft and update the spec before Apply. Don't automatically produce a gallery; stop after a successful first image. Nonvisual projects bypass this gate. During implementation, use Visual Gauntlet for actual reference-vs-rendered QA.
 
 ## Skill composition
 

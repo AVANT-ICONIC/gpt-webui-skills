@@ -134,6 +134,10 @@ When an OpenSpec project is implementing a non-trivial change, Dev Mode must imp
 
 If no suitable change exists yet, do not start ad-hoc implementation. Route back through Explore or Propose first.
 
+## Visual prototype gate inside native Explore / Propose (conditional)
+
+For visually led games, consumer apps and interfaces, compose with `visual-prototype`. During Explore or Propose, establish **one owner-approved, cohesive visual anchor** from an authorized image generation or existing reference. Stop after the first successful selection; do not automatically generate more variants. If early specification is needed to resolve gameplay or screens, create that exploration first, then approve the visual and revise the same native OpenSpec change **before Apply**. Bind the actual accepted image and a concrete visual contract to existing native artifacts; never fork a shadow GDD or invent product features from concept art. Nonvisual changes do not require this gate. Visual Gauntlet verifies rendered output against the anchor during implementation.
+
 ## WebUI without the OpenSpec CLI
 
 ChatGPT WebUI may have repository access without a local shell or OpenSpec CLI.

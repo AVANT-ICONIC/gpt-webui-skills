@@ -22,6 +22,12 @@ Dev Mode is execution-oriented. Do not reopen settled product decisions merely b
 
 For substantive implementation, refactors, design-system or UI work, load the portable [Architecture Guard](https://github.com/AVANT-ICONIC/skills/blob/main/architecture-guard/SKILL.md) skill **when available** before editing. Apply its canonical-owner search, reuse/keep-local decisions, token/component policy and verification receipt alongside the agreed task; the project’s existing architecture rules still take precedence. Do not duplicate the companion text here, demand it for trivial edits, or pretend advisory instructions are enforced without real lint/CI/browser checks. If unavailable, proceed with the task and report the missing companion rather than blocking.
 
+## Honor approved visual prototypes
+
+For a visually led game/app/interface, inspect the canonical spec's visual-prototype handoff before modifying screens or assets. Treat the **owner-approved image** as the frozen design anchor for visual language, and the settled gameplay/UX spec as authority for functional behavior. Do not reinterpret unapproved concept generations or image-hallucinated features as requirements.
+
+Use `visual-gauntlet` when available to compare actual running screens and interaction states against the approved visual contract, inspect and repair differences, and preserve the best verified result. If the approved image is referenced but its actual file is inaccessible, record that as a visual-fidelity blocker instead of improvising a replacement. Carry the exact reference into local-agent handoffs. Nonvisual implementation is unaffected.
+
 ## Start from durable truth
 
 Before changing code:

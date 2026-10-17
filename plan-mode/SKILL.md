@@ -32,6 +32,10 @@ Orient on:
 
 Facts are your job to retrieve. Decisions are the user's job to make.
 
+## Visual prototype gate for visually led products
+
+When planning a visually led app/game/interface, load `visual-prototype` as a conditional companion. Once mechanics, product constraints, and key screen needs are coherent, seek **one integrated prototype board or existing visual reference** to establish an approved design anchor around the Plan → Spec boundary. If a draft spec is needed to make the image accurate, complete the visual gate immediately after that draft and before implementation. The user-approved first strong image ends exploration; never regenerate variants automatically. Preserve the selected asset and its status in the project source of truth, and make the next specification explicitly reference it. Nonvisual work bypasses this gate.
+
 ## Work the decision frontier
 
 Model the problem as a dependency tree.

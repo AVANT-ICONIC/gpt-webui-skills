@@ -43,6 +43,12 @@ LOCAL HANDOFF remains available when execution must continue elsewhere.
 | [Visual Gauntlet](./visual-gauntlet/SKILL.md) | Inspect actual rendered visual output, reference fidelity, motion and real interactions; recover honestly when tools are missing | Visual QA companion |
 
 
+## Permanent engineering quality companion
+
+For **all software projects** involving codebase creation, implementation, refactoring, architectural review or engineering specifications, load the canonical [Architecture Guard](https://github.com/AVANT-ICONIC/skills/blob/main/architecture-guard/SKILL.md) as the standing workmanship standard (through Dev Mode or the applicable code-oriented workflow). This explicitly includes consistently organized modules, root README quality, code and usage documentation, the docs/ directory for substantive Markdown, honest test receipts and a lean tooling surface. Do not require this companion for unrelated casual conversation or simple non-code writing.
+
+A connector/chat skill can direct agent behavior, but only installed agent routing and project-native CI/lint can enforce it. Agents outside ChatGPT, including Claude, must also load the shared skill or receive a repository instruction pointing to it; a GitHub edit is not an automatic hidden update to other agents' configuration.
+
 ## Visual prototype gate (conditional)
 
 For visually led apps, games and interfaces, load [Visual Prototype](./visual-prototype/SKILL.md) around the spec boundary: one cohesive concept board or selected reference, inspected and explicitly approved, then recorded in the project's native spec/design source of truth **before implementation**. If mechanics or screen layout first require a rough draft, do the visual review immediately after that draft and update the spec before Apply. Don't automatically produce a gallery; stop after a successful first image. Nonvisual projects bypass this gate. During implementation, use Visual Gauntlet for actual reference-vs-rendered QA.

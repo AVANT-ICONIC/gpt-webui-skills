@@ -22,6 +22,10 @@ Dev Mode is execution-oriented. Do not reopen settled product decisions merely b
 
 For substantive implementation, refactors, design-system or UI work, load the portable [Architecture Guard](https://github.com/AVANT-ICONIC/skills/blob/main/architecture-guard/SKILL.md) skill **when available** before editing. Apply its canonical-owner search, reuse/keep-local decisions, token/component policy and verification receipt alongside the agreed task; the project’s existing architecture rules still take precedence. Do not duplicate the companion text here, demand it for trivial edits, or pretend advisory instructions are enforced without real lint/CI/browser checks. If unavailable, proceed with the task and report the missing companion rather than blocking.
 
+## Standing codebase craftsmanship across projects
+
+Architecture Guard is a **cross-project standing code-quality requirement**, not something to apply only when a user specifically says "clean code". For every new codebase scaffold and nontrivial engineering change, review or architectural migration, load [the canonical portable rule](https://github.com/AVANT-ICONIC/skills/blob/main/architecture-guard/SKILL.md) when available. It governs meaningful organization, canonical feature ownership, complete and correct root README/usage guidance, substantive Markdown inside docs/, synchronized code and docs, tests, simple development commands and evidence-backed verification. Keep existing mature conventions and preserve conventional root Markdown such as AGENTS.md, README.md and CONTRIBUTING.md. Ordinary single-line mechanical fixes must still preserve this standard without requiring ceremony. Do not duplicate the portable skill's entire policy here.
+
 ## Honor approved visual prototypes
 
 For a visually led game/app/interface, inspect the canonical spec's visual-prototype handoff before modifying screens or assets. Treat the **owner-approved image** as the frozen design anchor for visual language, and the settled gameplay/UX spec as authority for functional behavior. Do not reinterpret unapproved concept generations or image-hallucinated features as requirements.

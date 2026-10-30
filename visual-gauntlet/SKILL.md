@@ -26,7 +26,7 @@ The same agent is responsible for BUILD/CODE â†’ CHECK the **actual artifact** â
 3. **CAPTURE BASELINE.** Save or identify the current best-known artifact. Obtain real output at representative viewports/states, temporal positions and/or image references. **Open and look at captured images/frames**. Capturing a file is not inspection.
 4. **DIAGNOSE THE LARGEST DEVIATIONS.** Compare geometry, text, color, gradients, layers, shadow/refraction, content and responsive framing against the locked contract. Verify temporal behavior and working interaction using [motion and interaction checks](./references/motion-interaction.md). Record specific observations, not "looks off".
 5. **REPAIR, RECALIBRATE, REINSPECT.** Address critical/major defects first without rewriting unrelated content. Re-render the revised candidate in the same relevant conditions, inspect it, and regression-check earlier passed behavior. Keep or restore the best verified revision if a fix worsens it.
-6. **POLISH AND GATE.** Audit finesse and coherence only after core behavior is correct. Aim for **three meaningful observed passes** on substantial visual builds unless already objectively exact or legitimately constrained; three blind prompts/screenshots are not passes. Continue beyond three while meaningful defects are fixable. Report the result using [evidence and reference comparison](./references/visual-evidence.md).
+6. **POLISH AND GATE.** Audit finesse and coherence only after core behavior is correct. Run meaningful evidence-backed passes until critical gates pass and no material defect remains; there is no magic minimum number. Every repair requires observation of the newest revision. The Anti-SlopRush release gate owns final approval. Report the result using [evidence and reference comparison](./references/visual-evidence.md).
 
 If testing cannot actually execute, use the precise status and [recovery / continuation](./references/recovery-handoff.md). Do not turn an environment blocker into a fabricated PASS.
 
@@ -58,6 +58,8 @@ Open limits: any NOT_EVALUATED critical requirement and exact next action
 **PASS** requires every applicable *critical* requirement actually observed and met, and no known unresolved major/critical defect. Mark untested aspects **NOT_EVALUATED** within coverage; if such an aspect is critical, overall verdict cannot be PASS. Useful partial delivery may be marked NEEDS_WORK/BLOCKED, never misrepresented as verified. Details in [visual evidence](./references/visual-evidence.md).
 
 ## Compose with existing skills, do not duplicate them
+
+- **`anti-sloprush` (always-apply):** owns final release eligibility and latest-revision evidence; Visual Gauntlet owns actual visual procedures. Use both for visual artifact work.
 
 - **`visual-chat`:** presentation and functional Continue button where available. It does **not** inspect images or drive quality gates.
 - **`video-watch`:** supplies *actual viewed* timestamped frames/contact sheets for video; Visual Gauntlet judges reference fidelity, continuity and change results.

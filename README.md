@@ -29,6 +29,7 @@ LOCAL HANDOFF remains available when execution must continue elsewhere.
 
 | Skill | Purpose | Style |
 | --- | --- | --- |
+| [Anti-SlopRush](./anti-sloprush/SKILL.md) | **Always apply:** revision-current completion gate, real observation and adversarial single-agent self-review | Universal QA release adapter |
 | [Geometric Design](./geometric-design/SKILL.md) | **Experimental alpha technical preview**, source-backed symbol geometry, nested compositions, responsive UI tokens and technical audits; no proven independent creative superiority | Capability-aware, geometry-evidence-first |
 | [Intent Mode](./intent-mode/SKILL.md) | Reconstruct the real objective from messy or ambiguous input | Context-rich, gap-seeking, minimal interview |
 | [Plan Mode](./plan-mode/SKILL.md) | Settle project-level or multi-change decisions without duplicating OpenSpec change exploration | Interactive, 2–3 independent decision threads per round |
@@ -72,6 +73,12 @@ Shared behavior should live in one companion skill rather than being copied into
 
 A task skill must remain semantically complete without relying on visual formatting. Companion skills may change presentation, workflow hygiene, or other cross-cutting behavior, but must not silently change the task's domain rules.
 
+
+### Anti-SlopRush completion gate
+
+`anti-sloprush` is an **always-apply release companion** for every ordinary response. It uses a lightweight correctness pass for quick chat and stronger artifact-specific evidence for substantial work. The canonical quality policy belongs to [AVANT-ICONIC/skills/anti-sloprush](https://github.com/AVANT-ICONIC/skills/blob/main/anti-sloprush/SKILL.md); this repository stores only the WebUI adapter. It requires no second agent. A WebUI skill is best-effort instruction, **not** an actual platform stop hook, and must never pretend hidden output was inspected.
+
+Compose it with `visual-gauntlet` for actual image/render inspection, `dev-mode` and `architecture-guard` for code, and `visual-chat` solely for the appearance of the chat. Completing an image-generation tool call is not quality approval.
 
 ### Skill Trace
 

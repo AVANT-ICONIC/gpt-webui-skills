@@ -87,6 +87,10 @@ Never force-push, delete important branches, merge a pull request, publish a rel
 
 When repository-specific contribution rules exist, follow them.
 
+## Anti-SlopRush release gate
+
+Compose with the WebUI `anti-sloprush` companion for revision-current release approval. Dev Mode owns implementation and project-native tests; Anti-SlopRush rejects completion if the latest result remains unobserved, any critical requirement fails, or regressions are untested. No second agent is required; host-level hard interception is unavailable in ordinary WebUI.
+
 ## Verification
 
 Do not equate "code was written" with "done."
